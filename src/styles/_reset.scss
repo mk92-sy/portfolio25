@@ -1,0 +1,71 @@
+/* 기본 설정 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 글꼴 렌더링 개선 */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  color-scheme: light dark; // 다크 모드 고려
+}
+
+/* 화면 요소 기본값 */
+body {
+  line-height: 1;
+  font-family: system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: var(--background-color, #fff);
+  color: var(--text-color, #333);
+}
+
+/* 미디어 관련 */
+img,
+picture,
+video,
+canvas {
+  max-width: 100%;
+  display: block;
+}
+
+/* 리스트 초기화 */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 버튼 초기화 */
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+/* 링크 초기화 */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 입력 요소 스타일 */
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 애니메이션 최소화 (접근성 고려) */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

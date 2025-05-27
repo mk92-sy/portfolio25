@@ -1,0 +1,76 @@
+@import url(./_font.scss);
+@import url(./_mixin.scss);
+@import url(./_reset.scss);
+@import url(./_variables.scss);
+
+html {
+  font-size: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 1.6rem;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+a, button{
+  &:focus-visible{
+    outline:2px solid #000;
+  }
+}
+
+p {
+  line-height: 1.5;
+}
+
+.contents {
+  padding-top:6.4rem;
+  flex-grow: 1;
+}
+
+.inner{
+  max-width: 120rem;
+  margin:0 auto;
+}
+
+.p {
+  &-sm {
+    padding: 1.6rem;
+  }
+}
+
+h {
+  &1 {
+    font-size: var(--font-size-H1);
+  }
+
+  &2 {
+    font-size: var(--font-size-H2);
+  }
+
+  &3 {
+    font-size: var(--font-size-H3);
+  }
+
+  &4 {
+    font-size: var(--font-size-H4);
+  }
+
+  &5 {
+    font-size: var(--font-size-H5);
+  }
+
+  &6 {
+    font-size: var(--font-size-H6, 1.8rem);
+  }
+}

@@ -1,0 +1,94 @@
+/* 헤더 */
+.header {
+  position: fixed;
+  background-color: #fff;
+  width:100%;
+  top: 0;
+  left:0;
+  height: 6.4rem;
+  .inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    max-width: 120rem;
+    margin:0 auto;
+    padding: 1.6rem;
+  }
+  .toggle{
+    width:3.2rem;
+    height:3.2rem;
+  }
+}
+/* 네비메뉴 */
+.nav-wrap{
+  position: fixed;
+  width:100%;
+  height: 100%;
+  transition: background-color 0.3s linear;
+  z-index: 1;
+  .sheet{
+    position: fixed;
+    right:0;
+    top:0;
+    width:85%;
+    height: 100%;
+    max-width: 36rem;
+    background-color: #fff;
+    border-radius: 2rem 0 0 2rem;
+    transition: transform 0.3s ease-in-out;
+  }
+  .nav {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6rem;
+    max-width: 120rem;
+    margin:0 auto;
+    padding:2rem;
+    .link{
+      position: relative;
+      width:100%;
+      height: 3.2rem;
+      line-height: 3.2rem;
+      font-size: var(--font-size-H3);
+      color:#777;
+      &.home{
+        color:#222;
+        font-weight: 700;
+      }
+      &::after{
+        content: '';
+        position: absolute;
+        left:0;
+        bottom:0;
+        display: block;
+        width:0;
+        height:0.1rem;
+      }
+    }
+    .close{
+      position: absolute;
+      right:2rem;
+      top:2rem;
+      width:3.2rem;
+      height:3.2rem;
+    }
+  }
+  &.open{
+    background-color: rgba(0,0,0,.5);
+    .sheet{
+      transform: translateX(0);
+    }
+  }
+  &.close{
+    background-color: rgba(0,0,0,0);
+    pointer-events: none;
+    .sheet{
+      transform: translateX(100%);
+    }
+  }
+}
+
