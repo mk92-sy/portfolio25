@@ -6,6 +6,8 @@ import {
 } from "react-router-dom";
 import CommonLayout from "./components/layout/CommonLayout";
 import { StackProvider } from "./context/StackContext";
+import { RefProvider } from "./context/RefContext";
+import { DarkModeProvider } from "./context/DarkmodeContext";
 
 interface RouteCommon {
   loader?: LoaderFunction;
@@ -66,9 +68,13 @@ const router = createBrowserRouter(
 
 const App = () => {
   return (
-    <StackProvider>
-      <RouterProvider router={router} />
-    </StackProvider>
+    <DarkModeProvider>
+      <RefProvider>
+        <StackProvider>
+          <RouterProvider router={router} />
+        </StackProvider>
+      </RefProvider>
+    </DarkModeProvider>
   );
 };
 

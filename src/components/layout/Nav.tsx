@@ -1,12 +1,15 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import css from "./Nav.module.scss";
-import { useStack } from "../../context/StackContext";
 import { useEffect, useRef, useState } from "react";
-import useFocusTrap from "../../hooks/useFocusTrap";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useFocusTrap } from "../../hooks/useFocusTrap";
+import { useStack } from "../../context/StackContext";
+import { useRefContext } from "../../context/RefContext";
+
+import css from "./Nav.module.scss";
 
 const Nav = () => {
-  const { stacks, removeStack } = useStack();
   const { pathname } = useLocation();
+  const { returnRef, setReturnRef } = useRefContext();
+  const { stacks, removeStack } = useStack();
   const navigate = useNavigate();
   const navRef = useRef<HTMLDivElement | null>(null);
   const [focusActive, setFocusActive] = useState(false);
@@ -103,6 +106,12 @@ const Nav = () => {
             className={css.close}
             onClick={() => {
               removeStack("Nav");
+              if (returnRef && returnRef.current) {
+                setTimeout(() => {
+                  returnRef.current?.focus();
+                  setReturnRef(null);
+                }, 0);
+              }
             }}
           >
             닫기 임시

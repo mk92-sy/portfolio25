@@ -9,4 +9,14 @@
   --font-size-H3: 2.4rem;
   --font-size-H4: 2rem;
   --font-size-H5: 1.8rem;
+
+  --bg-color: white;
+  --text-color: black;
 }
+[darkmode="true"] {
+  &:root{
+    --bg-color: black;
+    --text-color: white;
+  }
+}
+

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const useFocusTrap = (
+export const useFocusTrap = (
   active?: boolean,
   ref?: React.RefObject<HTMLDivElement>
 ) => {
@@ -48,5 +48,3 @@ const useFocusTrap = (
 
   return ref;
 };
-
-export default useFocusTrap;

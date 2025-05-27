@@ -1,11 +1,13 @@
 /* 헤더 */
 .header {
   position: fixed;
-  background-color: #fff;
+  background-color: var(--bg-color);
+  color:var(--text-color);
   width:100%;
   top: 0;
   left:0;
   height: 6.4rem;
+  
   .inner{
     display: flex;
     justify-content: space-between;
@@ -14,6 +16,13 @@
     max-width: 120rem;
     margin:0 auto;
     padding: 1.6rem;
+    font-family: 'SeoulAlrim', sans-serif;
+    .logo{
+      display: flex;
+      align-items: center;
+      font-size: 3.6rem;
+      line-height: 1;
+    }
   }
   .toggle{
     width:3.2rem;

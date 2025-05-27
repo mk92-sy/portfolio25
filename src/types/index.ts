@@ -8,10 +8,17 @@ interface Button extends ButtonHTMLAttributes<HTMLButtonElement> {
   loading?: boolean;
 }
 
+interface IconButton extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "text";
+  size?: "sm" | "md" | "lg";
+  icon?: "sun" | "moon" | "top";
+  loading?: boolean;
+}
+
 type StackContext = {
   stacks: string[];
   addStack: (item: string) => void;
   removeStack: (item: string) => void;
 };
 
-export type { Button, StackContext };
+export type { Button, IconButton, StackContext };

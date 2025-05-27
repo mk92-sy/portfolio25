@@ -22,10 +22,6 @@
 
     /* Paths */
     "baseUrl": ".",  //절대경로 디렉터리 설정
-    "paths": {
-      "@/*": ["./src/*"],
-      "components/*":["./src/components/*"]
-    },
   },
   "include": ["src"]
 }

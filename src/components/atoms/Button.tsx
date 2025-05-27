@@ -1,4 +1,4 @@
-import type * as TYPES from "@/types";
+import type * as TYPES from "../../types";
 import css from "./Button.module.scss";
 
 const Button = ({
