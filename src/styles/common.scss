@@ -1,7 +1,7 @@
-@import url(./_font.scss);
-@import url(./_mixin.scss);
-@import url(./_reset.scss);
-@import url(./_variables.scss);
+@forward './font';
+@forward './mixin';
+@forward './reset';
+@forward './variables';
 
 html {
   font-size: 10px;

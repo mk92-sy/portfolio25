@@ -1,4 +1,4 @@
-import { type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 import Header from "./Header";
 import Footer from "./Footer";
@@ -12,15 +12,21 @@ interface CommonLayoutProps {
 
 const CommonLayout = ({ children }: CommonLayoutProps) => {
   const { stacks } = useStack();
+  const contentsRef = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    if (contentsRef.current) {
+      if (stacks.length > 0) {
+        contentsRef.current.inert = true;
+      } else {
+        contentsRef.current.inert = false;
+      }
+    }
+  }, [stacks]);
   return (
     <>
       <Header />
       <Nav />
-      <main
-        className="contents"
-        id="Contents"
-        {...{ inert: stacks.length > 0 }}
-      >
+      <main className="contents" id="Contents" ref={contentsRef}>
         {children}
       </main>
       <Footer />

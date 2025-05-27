@@ -1,11 +1,16 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import css from "./Header.module.scss";
+import css from "./Nav.module.scss";
 import { useStack } from "../../context/StackContext";
+import { useEffect, useRef, useState } from "react";
+import useFocusTrap from "../../hooks/useFocusTrap";
 
 const Nav = () => {
   const { stacks, removeStack } = useStack();
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const navRef = useRef<HTMLDivElement | null>(null);
+  const [focusActive, setFocusActive] = useState(false);
+
   const movePage = (path: string) => {
     if (stacks.includes("Nav")) {
       removeStack("Nav");
@@ -14,12 +19,35 @@ const Nav = () => {
       navigate(path);
     }
   };
+
+  useEffect(() => {
+    if (navRef.current) {
+      if (stacks.includes("Nav")) {
+        navRef.current.inert = false;
+        setFocusActive(true);
+      } else {
+        navRef.current.inert = true;
+        setFocusActive(false);
+      }
+    }
+  }, [stacks]);
+
+  useEffect(() => {
+    if (navRef.current) {
+      navRef.current.inert = true;
+    }
+  }, []);
+
+  useFocusTrap(focusActive, navRef);
+
   return (
     <div
       className={`${css["nav-wrap"]} ${
         stacks.includes("Nav") ? css.open : css.close
       }`}
-      {...{ inert: stacks.includes("Nav") ? false : true }}
+      ref={navRef}
+      role="dialog"
+      aria-modal="true"
     >
       <aside className={css.sheet}>
         <nav className={css.nav}>

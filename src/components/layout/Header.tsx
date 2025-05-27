@@ -1,16 +1,23 @@
 import { Link } from "react-router-dom";
 import css from "./Header.module.scss";
-import { useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { useStack } from "../../context/StackContext";
 
 const Header = () => {
   const { stacks, addStack } = useStack();
+  const headerRef = useRef<HTMLElement | null>(null);
   useEffect(() => {
-    console.log("current stacks : ", stacks);
+    if (headerRef.current) {
+      if (stacks.length > 0) {
+        headerRef.current.inert = true;
+      } else {
+        headerRef.current.inert = false;
+      }
+    }
   }, [stacks]);
   return (
     <>
-      <header className={css.header} {...{ inert: stacks.length > 0 }}>
+      <header className={css.header} ref={headerRef}>
         <div className={css.inner}>
           <h1>
             <Link to="/">SYL</Link>
