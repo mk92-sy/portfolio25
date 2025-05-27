@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import type * as TYPES from "@/types";
+import type * as TYPES from "../types";
 
 const StackContext = createContext<TYPES.StackContext | undefined>(undefined);
 
