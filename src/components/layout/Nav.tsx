@@ -19,7 +19,7 @@ const Nav = () => {
       className={`${css["nav-wrap"]} ${
         stacks.includes("Nav") ? css.open : css.close
       }`}
-      inert={stacks.includes("Nav") ? false : true}
+      {...{ inert: stacks.includes("Nav") ? false : true }}
     >
       <aside className={css.sheet}>
         <nav className={css.nav}>

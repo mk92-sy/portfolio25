@@ -16,7 +16,11 @@ const CommonLayout = ({ children }: CommonLayoutProps) => {
     <>
       <Header />
       <Nav />
-      <main className="contents" id="Contents" inert={stacks.length > 0}>
+      <main
+        className="contents"
+        id="Contents"
+        {...{ inert: stacks.length > 0 }}
+      >
         {children}
       </main>
       <Footer />

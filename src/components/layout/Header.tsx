@@ -10,7 +10,7 @@ const Header = () => {
   }, [stacks]);
   return (
     <>
-      <header className={css.header} inert={stacks.length > 0}>
+      <header className={css.header} {...{ inert: stacks.length > 0 }}>
         <div className={css.inner}>
           <h1>
             <Link to="/">SYL</Link>
