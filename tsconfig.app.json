@@ -21,7 +21,10 @@
     "noFallthroughCasesInSwitch": true,
 
     /* Paths */
-    "baseUrl": ".",  //절대경로 디렉터리 설정
+    "baseUrl": "." //절대경로 디렉터리 설정
   },
-  "include": ["src"]
+  // 컴파일할 파일들을 지정
+  "include": ["src", "**/*.tsx"],
+  // 컴파일 대상에서 제외할 파일들을 지정
+  "exclude": ["node_modules", "**/*.test.ts"]
 }

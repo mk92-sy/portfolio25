@@ -6,7 +6,7 @@ import Nav from "./Nav";
 
 import { useStack } from "../../context/StackContext";
 import IconButton from "../atoms/IconButton";
-import { useDarkMode } from "../../context/DarkmodeContext";
+import { useDarkMode } from "../../context/DarkModeContext";
 
 interface CommonLayoutProps {
   children: ReactNode;
