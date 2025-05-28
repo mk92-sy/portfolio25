@@ -13,3 +13,18 @@
 .full {
   width: 100%;
 }
+
+.sun, .moon{
+  position: fixed;
+  left:2rem;
+  bottom:2rem;
+  width:4rem;
+  height:4rem;
+  border-radius: 50%;
+}
+.sun{
+  background-color: skyblue;
+}
+.moon{
+  background-color: #111;
+}

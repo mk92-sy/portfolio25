@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom";
 import css from "./Header.module.scss";
-import { useRef, useEffect } from "react";
-import { useStack } from "../../context/StackContext";
-import { useRefContext } from "../../context/RefContext";
+import { useRef } from "react";
+/* import { useStack } from "../../context/StackContext";
+import { useRefContext } from "../../context/RefContext"; */
 
 const Header = () => {
-  const { setReturnRef } = useRefContext();
+  /*  const { setReturnRef } = useRefContext();
   const { stacks, addStack } = useStack();
+  const toggleRef = useRef<HTMLButtonElement | null>(null); */
   const headerRef = useRef<HTMLElement | null>(null);
-  const toggleRef = useRef<HTMLButtonElement | null>(null);
-  useEffect(() => {
+  /* useEffect(() => {
     if (headerRef.current) {
       if (stacks.length > 0) {
         headerRef.current.inert = true;
@@ -17,15 +17,20 @@ const Header = () => {
         headerRef.current.inert = false;
       }
     }
-  }, [stacks]);
+  }, [stacks]); */
   return (
     <>
       <header className={css.header} ref={headerRef}>
         <div className={css.inner}>
           <h1 className={css.logo}>
-            <Link to="/">SEUNGYEON.LEE</Link>
+            <Link to="/">
+              <span className={css.small}>SEUNGYEON</span>
+              <br />
+              LEE
+            </Link>
           </h1>
-          <button
+          <p>Web Publisher</p>
+          {/* <button
             className={css.toggle}
             onClick={() => {
               addStack("Nav");
@@ -34,8 +39,8 @@ const Header = () => {
             ref={toggleRef}
           >
             임시버튼
-            {/*  <HamburgerMenu size="32" color="#555555" /> */}
-          </button>
+             <HamburgerMenu size="32" color="#555555" />
+          </button> */}
         </div>
       </header>
     </>

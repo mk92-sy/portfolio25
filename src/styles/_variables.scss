@@ -10,13 +10,19 @@
   --font-size-H4: 2rem;
   --font-size-H5: 1.8rem;
 
-  --bg-color: white;
-  --text-color: black;
+  --color-txt: #222;
+  --color-bg: #EAEFEF;
+
+  --color-white: #fff;
+
+  --color-primary:#333446;
+  --color-secondary:#7F8CAA;
+  --color-tertiary:#B8CFCE;
 }
 [darkmode="true"] {
   &:root{
-    --bg-color: black;
-    --text-color: white;
+    --color-bg: #222;
+    --color-txt: #EAEFEF;
   }
 }
 

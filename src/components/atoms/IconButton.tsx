@@ -9,7 +9,7 @@ const IconButton = ({
   className,
   ...rest
 }: TYPES.IconButton) => {
-  const classList = `${size}${icon ? ` ${css.icon}` : ""}${
+  const classList = `${size}${icon ? ` ${css[icon]}` : ""}${
     loading ? ` ${css.loading}` : ""
   }${className ? ` ${className}` : ""}`;
   return (
