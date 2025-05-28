@@ -7,7 +7,7 @@ import {
 import CommonLayout from "./components/layout/CommonLayout";
 import { StackProvider } from "./context/StackContext";
 import { RefProvider } from "./context/RefContext";
-import { DarkModeProvider } from "./context/DarkmodeContext";
+import { DarkModeProvider } from "./context/DarkModeContext";
 
 interface RouteCommon {
   loader?: LoaderFunction;
