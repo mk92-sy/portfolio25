@@ -6,42 +6,21 @@ export default function ResumePage() {
       id="tabpanel-resume"
       data-wrap="Resume"
     >
-      <h2>Experience</h2>
-      <ul>
-        <li>
-          <strong>2023.7 ~ </strong>
-          <p>디앤디모바일 퍼블리셔 재직중</p>
-        </li>
-        <li>
-          <strong>2021.5 ~ 2023.4</strong>
-          <p>더이앤엠(주) 퍼블리셔 근무</p>
-        </li>
-        <li>
-          <strong>2019.1 ~ 2021.2</strong>
-          <p>애니시큐어 주식회사 퍼블리셔 근무</p>
-        </li>
-      </ul>
-      <hr />
-      <h2>Education</h2>
-      <ul>
-        <li>
-          <strong>2018.7 ~ 2018.12</strong>
-          <p>이젠컴퓨터학원 - 웹퍼블리셔 과정 수료(국비지원)</p>
-        </li>
-      </ul>
-      <hr />
-      <h2>Skills</h2>
-      <ul>
-        <li>HTML5</li>
-        <li>CSS3</li>
-        <li>SCSS</li>
-        <li>Javascript</li>
-        <li>Typescript</li>
-        <li>React</li>
-        <li>Next.js</li>
-        <li>Storybook</li>
-        <li>Figma</li>
-      </ul>
+      <p>
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab
+        illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+        explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
+        odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+        voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum
+        quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam
+        eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+        voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam
+        corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
+        Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
+        quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
+        voluptas nulla pariatur?
+      </p>
     </div>
   );
 }

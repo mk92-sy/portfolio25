@@ -24,11 +24,11 @@ const Header = () => {
       <header className={css.header} ref={headerRef}>
         <div className={css.inner}>
           <h1 className={css.title}>
-            디자이너의 <strong>감각</strong>과
+            {/*  디자이너의 <strong>감각</strong>과
             <br />
             개발자의 <strong>논리</strong>를 잇는
             <br />
-            웹퍼블리셔․
+            웹퍼블리셔․ */}
           </h1>
         </div>
       </header>

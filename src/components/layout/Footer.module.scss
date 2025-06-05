@@ -3,12 +3,21 @@
   bottom:0;
   left:0;
   padding: 1rem 0;
-  background-color: var(--bg-color);
+  background-color: var(--color-bg-01);
   color:var(--text-color);
   width: 100%;
+  &::after{
+    content: '';
+    background: linear-gradient(0deg, var(--color-bg-01) 0%, transparent 100%);
+    width:100%;
+    position: absolute;
+    left:0;
+    bottom:3.9rem;
+    height:1rem;
+  }
 }
 
 .copy {
   text-align: center;
-  font-size: var(--font-size-sm);
+  font-size: var(--font-size-xs);
 }
