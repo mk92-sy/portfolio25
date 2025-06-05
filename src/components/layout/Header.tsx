@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+/* import { Link } from "react-router-dom"; */
 import css from "./Header.module.scss";
 import { useRef } from "react";
-/* import { useStack } from "../../context/StackContext";
+/* import LogoImg from "../../assets/icons/logo.svg";
+import { useStack } from "../../context/StackContext";
 import { useRefContext } from "../../context/RefContext"; */
 
 const Header = () => {
@@ -22,25 +23,13 @@ const Header = () => {
     <>
       <header className={css.header} ref={headerRef}>
         <div className={css.inner}>
-          <h1 className={css.logo}>
-            <Link to="/">
-              <span className={css.small}>SEUNGYEON</span>
-              <br />
-              LEE
-            </Link>
+          <h1 className={css.title}>
+            디자이너의 <strong>감각</strong>과
+            <br />
+            개발자의 <strong>논리</strong>를 잇는
+            <br />
+            웹퍼블리셔․
           </h1>
-          <p>Web Publisher</p>
-          {/* <button
-            className={css.toggle}
-            onClick={() => {
-              addStack("Nav");
-              setReturnRef(toggleRef);
-            }}
-            ref={toggleRef}
-          >
-            임시버튼
-             <HamburgerMenu size="32" color="#555555" />
-          </button> */}
         </div>
       </header>
     </>

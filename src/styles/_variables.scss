@@ -1,17 +1,27 @@
 :root {
-  --font-size-xs: 1.2rem;
+  --font-size-xs: 1.3rem;
   --font-size-sm: 1.4rem;
-  --font-size-md: 1.6rem;
-  --font-size-lg: 1.8rem;
+  --font-size-md: 1.5rem;
+  --font-size-lg: 1.6rem;
 
-  --font-size-H1: 3.2rem;
-  --font-size-H2: 2.8rem;
-  --font-size-H3: 2.4rem;
-  --font-size-H4: 2rem;
-  --font-size-H5: 1.8rem;
+  --font-size-H1: 3rem;
+  --font-size-H2: 2.6rem;
+  --font-size-H3: 2.2rem;
+  --font-size-H4: 1.8rem;
+  --font-size-H5: 1.7rem;
 
   --color-txt: #222;
-  --color-bg: #EAEFEF;
+  --color-bg-00: #ffffff;
+  --color-bg-01: #ebe8e8;
+  --color-bg-02: #ced3d3;
+  --color-bg-03: #b1b0b0;
+  --color-bg-04: #999494;
+  --color-bg-05: #8a8282;
+  --color-bg-06: #524f4f;
+  --color-bg-07: #444141;
+  --color-bg-08: #353333;
+  --color-bg-09: #2c2c2c;
+  --color-bg-10: #181818;
 
   --color-white: #fff;
 
@@ -21,7 +31,17 @@
 }
 [darkmode="true"] {
   &:root{
-    --color-bg: #222;
+    --color-bg-00: #181818;
+    --color-bg-01: #2c2c2c;
+    --color-bg-02: #353333;
+    --color-bg-03: #444141;
+    --color-bg-04: #524f4f;
+    --color-bg-05: #8a8282;
+    --color-bg-06: #999494;
+    --color-bg-07: #b1b0b0;
+    --color-bg-08: #ced3d3;
+    --color-bg-09: #ebe8e8;
+    --color-bg-10: #ffffff;
     --color-txt: #EAEFEF;
   }
 }
