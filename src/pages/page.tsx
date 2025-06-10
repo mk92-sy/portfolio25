@@ -4,6 +4,11 @@ import ResumePage from "./resume/page";
 import AboutPage from "./about/page";
 import WorksPage from "./works/page";
 
+import ResumeIcon from "../assets/icons/resume-16.svg";
+import AboutMeIcon from "../assets/icons/eyes-fill.svg";
+import WorksIcon from "../assets/icons/work-order-check-outline.svg";
+import ContactIcon from "../assets/icons/send-plane-line.svg";
+
 export default function MainPage() {
   const [activeItem, setActiveItem] = useState<number>(0);
   return (
@@ -17,7 +22,8 @@ export default function MainPage() {
               setActiveItem(0);
             }}
           >
-            Resume
+            <img src={ResumeIcon} alt="" className="tab-icon" />
+            <span className="tab-title">Resume</span>
           </button>
         </li>
         <li className={`item item2${activeItem === 1 ? " active" : ""}`}>
@@ -28,7 +34,8 @@ export default function MainPage() {
               setActiveItem(1);
             }}
           >
-            About Me
+            <img src={AboutMeIcon} alt="" className="tab-icon" />
+            <span className="tab-title">About Me</span>
           </button>
         </li>
         <li className={`item item3${activeItem === 2 ? " active" : ""}`}>
@@ -39,7 +46,8 @@ export default function MainPage() {
               setActiveItem(2);
             }}
           >
-            Works
+            <img src={WorksIcon} alt="" className="tab-icon" />
+            <span className="tab-title">Works</span>
           </button>
         </li>
         <li className={`item item4${activeItem === 3 ? " active" : ""}`}>
@@ -50,7 +58,8 @@ export default function MainPage() {
               setActiveItem(3);
             }}
           >
-            Contact
+            <img src={ContactIcon} alt="" className="tab-icon" />
+            <span className="tab-title">Contact</span>
           </button>
         </li>
       </ul>

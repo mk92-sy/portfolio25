@@ -1,28 +1,34 @@
 /* 헤더 */
-.header {
-  color:var(--color-txt);
+.bg{
   width:100%;
-  height:30rem;
+  height: 30rem;
   background-color: #2e3752;
-  color:#fff;
+}
+.header {
   display: flex;
   align-items: flex-end;
+  position: sticky;
+  top:0;
+  width:100%;
+  height:5.2rem;
+  color:var(--color-txt);
+  color:#fff;
   .inner{
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    margin:0 auto;
     width:calc(100% - 4rem);
     max-width: 100rem;
-    margin:0 auto;
-    padding: 3rem 0;
+    height:100%;
     .title{
-      font-size: 3rem;
-      line-height: 1.4;
-      font-weight: 500;
       width:40%;
       min-height: 4rem;
       background-color: #eee;
+      font-size: 3rem;
+      font-weight: 500;
+      line-height: 1.4;
       border-radius: 1rem;
     }
     .small{
