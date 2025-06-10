@@ -1,36 +1,23 @@
-/* import { Link } from "react-router-dom"; */
 import css from "./Header.module.scss";
-/* import { useRef } from "react"; */
-/* import LogoImg from "../../assets/icons/logo.svg";
-import { useStack } from "../../context/StackContext";
-import { useRefContext } from "../../context/RefContext"; */
 
 const Header = () => {
-  /*  const { setReturnRef } = useRefContext();
-  const { stacks, addStack } = useStack();
-  const toggleRef = useRef<HTMLButtonElement | null>(null); */
-  /*  const headerRef = useRef<HTMLElement | null>(null); */
-  /* useEffect(() => {
-    if (headerRef.current) {
-      if (stacks.length > 0) {
-        headerRef.current.inert = true;
-      } else {
-        headerRef.current.inert = false;
-      }
-    }
-  }, [stacks]); */
   return (
     <>
-      <div className={css.bg}></div>
+      <div className={css.bg}>
+        <h1 aria-label="안녕하세요! 저는 웹 퍼블리셔 이승연입니다.">
+          안녕하세요! <br />
+          디자이너의 <strong>감각</strong>과
+          <br />
+          개발자의 <strong>논리</strong>를 잇는
+          <br />
+          <span className="typewriter"></span>
+        </h1>
+      </div>
       <div className={css.header}>
         <div className={css.inner}>
-          <h1 className={css.title}>
-            {/*  디자이너의 <strong>감각</strong>과
-            <br />
-            개발자의 <strong>논리</strong>를 잇는
-            <br />
-            웹퍼블리셔․ */}
-          </h1>
+          <h2 className={css.title} aria-label="웹 퍼블리셔, 이승연">
+            SEUNGYEON LEE
+          </h2>
         </div>
       </div>
     </>

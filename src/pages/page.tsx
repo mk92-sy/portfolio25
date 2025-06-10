@@ -4,7 +4,7 @@ import ResumePage from "./resume/page";
 import AboutPage from "./about/page";
 import WorksPage from "./works/page";
 
-import ResumeIcon from "../assets/icons/resume-16.svg";
+import ResumeIcon from "../assets/icons/contract-filled.svg";
 import AboutMeIcon from "../assets/icons/eyes-fill.svg";
 import WorksIcon from "../assets/icons/work-order-check-outline.svg";
 import ContactIcon from "../assets/icons/send-plane-line.svg";

@@ -2,11 +2,11 @@ import { useEffect, useRef, type ReactNode } from "react";
 
 import Header from "./Header";
 import Footer from "./Footer";
-import Nav from "./Nav";
 
-import { useStack } from "../../context/StackContext";
 import DarkModeButton from "../molecules/DarkModeButton";
-
+import ScrollTopButton from "../molecules/ScrollTopButton";
+import { useStack } from "../../context/StackContext";
+import { useScroll } from "../../context/ScrollContext";
 interface CommonLayoutProps {
   children: ReactNode;
 }
@@ -14,6 +14,7 @@ interface CommonLayoutProps {
 const CommonLayout = ({ children }: CommonLayoutProps) => {
   const { stacks } = useStack();
   const contentsRef = useRef<HTMLElement | null>(null);
+  const { top } = useScroll();
   useEffect(() => {
     if (contentsRef.current) {
       if (stacks.length > 0) {
@@ -26,11 +27,11 @@ const CommonLayout = ({ children }: CommonLayoutProps) => {
   return (
     <>
       <Header />
-      <Nav />
       <main className="contents" id="Contents" ref={contentsRef}>
         {children}
       </main>
       <Footer />
+      {top > 10 && <ScrollTopButton />}
       <DarkModeButton />
     </>
   );

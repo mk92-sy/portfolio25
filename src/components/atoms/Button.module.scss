@@ -51,3 +51,16 @@
     background-size: 3rem auto;
   }
 }
+
+.top{
+  box-shadow: 0 .3rem 1.2rem 0 rgba(0, 45, 125, .161);
+  overflow: hidden;
+  position: fixed;
+  bottom:9rem;
+  left:2rem;
+  width:4rem;
+  height:4rem;
+  background-color: #fff;
+  cursor:pointer;
+  border-radius: 50%;
+}

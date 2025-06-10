@@ -8,6 +8,7 @@ import CommonLayout from "./components/layout/CommonLayout";
 import { StackProvider } from "./context/StackContext";
 import { RefProvider } from "./context/RefContext";
 import { DarkModeProvider } from "./context/DarkModeContext";
+import { ScrollProvider } from "./context/ScrollContext";
 
 interface RouteCommon {
   loader?: LoaderFunction;
@@ -69,11 +70,13 @@ const router = createBrowserRouter(
 const App = () => {
   return (
     <DarkModeProvider>
-      <RefProvider>
-        <StackProvider>
-          <RouterProvider router={router} />
-        </StackProvider>
-      </RefProvider>
+      <ScrollProvider>
+        <RefProvider>
+          <StackProvider>
+            <RouterProvider router={router} />
+          </StackProvider>
+        </RefProvider>
+      </ScrollProvider>
     </DarkModeProvider>
   );
 };
