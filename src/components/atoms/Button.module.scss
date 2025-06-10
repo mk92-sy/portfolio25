@@ -18,9 +18,7 @@
 
 .sun, .moon{
   overflow: hidden;
-  position: fixed;
-  bottom:4rem;
-  left:2rem;
+  position: relative;
   width:4rem;
   height:4rem;
   border-radius: 50%;
@@ -39,7 +37,7 @@
   background-color: #61c0ff;
   animation: moonchange forwards ease-in-out 0.7s;
   &::after{
-    background: url(../../assets/icons/sun-behind-cloud.svg) no-repeat center;
+    background: url(../../assets/icons/icon_s128_sun.svg) no-repeat center;
     background-size: 3rem auto;
   }
 }
@@ -47,7 +45,7 @@
   background-color: #111;
   animation: sunchange forwards ease-in-out 0.7s;
   &::after{
-    background: url(../../assets/icons/full-moon.svg) no-repeat center;
+    background: url(../../assets/icons/icon_s128_moon.svg) no-repeat center;
     background-size: 3rem auto;
   }
 }
@@ -56,11 +54,15 @@
   box-shadow: 0 .3rem 1.2rem 0 rgba(0, 45, 125, .161);
   overflow: hidden;
   position: fixed;
-  bottom:9rem;
+  bottom:4.6rem;
   left:2rem;
   width:4rem;
   height:4rem;
   background-color: #fff;
+  background-image: url(../../assets/icons/icon_s64_top.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 2.4rem auto;
   cursor:pointer;
   border-radius: 50%;
 }

@@ -25,7 +25,7 @@ body {
 #root{
   position: relative;
   width:100%;
-  height:100%;
+  height:auto;
   min-height: 100svh;
 }
 
@@ -124,6 +124,23 @@ h {
         letter-spacing: -0.1px;
         .tab-icon{
           width:2.4rem;
+          height:2.4rem;
+          background-color: #fff;
+          mask-repeat: no-repeat;
+          mask-position: center;
+          mask-size: 2.4rem auto;
+          &.resume{
+            mask-image: url(../assets/icons/icon_s64_resume.svg);
+          }
+          &.about{
+            mask-image: url(../assets/icons/icon_s64_about.svg);
+          }
+          &.works{
+            mask-image: url(../assets/icons/icon_s64_works.svg);
+          }
+          &.contact{
+            mask-image: url(../assets/icons/icon_s64_contact.svg);
+          }
         }
         .tab-title{
           display: none;
@@ -145,6 +162,9 @@ h {
        }
        .tab-title{
         display: block;
+       }
+       .tab-icon{
+        background-color: #000;
        }
        &:not(:first-child)::before, &:not(:last-child)::after{
         box-shadow: 0 0 0 0.5rem var(--color-bg-00);
@@ -188,7 +208,7 @@ h {
   }
 }
 
-@media (min-width: 1280px) {
+@include desktop {
   .card-wrap .card-area .item{
     button{
       font-size: 1.6rem;
@@ -196,45 +216,10 @@ h {
   }    
 }
 
-/* Typewriter effect 1 */
-@keyframes typing {
-  0.0000%, 20.0000% { content: ""; }
-  1.0000%, 19.0000% { content: "인"; }
-  2.0000%, 18.0000% { content: "인터"; }
-  3.0000%, 17.0000% { content: "인터랙"; }
-  4.0000%, 16.0000% { content: "인터랙션"; }
-  5.0000%, 15.0000% { content: "인터랙션 "; }
-  6.0000%, 14.0000% { content: "인터랙션 아"; }
-  7.0000%, 13.0000% { content: "인터랙션 아티"; }
-  8.0000%, 12.0000% { content: "인터랙션 아티스"; }
-  9.0000%, 11.0000% { content: "인터랙션 아티스트"; }
-
-  30.0000%, 50.0000% { content: ""; }
-  31.0000%, 49.0000% { content: "접"; }
-  32.0000%, 48.0000% { content: "접근"; }
-  33.0000%, 47.0000% { content: "접근성"; }
-  34.0000%, 46.0000% { content: "접근성 "; }
-  35.0000%, 45.0000% { content: "접근성 큐"; }
-  36.0000%, 44.0000% { content: "접근성 큐레"; }
-  37.0000%, 43.0000% { content: "접근성 큐레이"; }
-  38.0000%, 42.0000% { content: "접근성 큐레이"; }
-  39.0000%, 41.0000% { content: "접근성 큐레이터"; }
-
-  60.0000%, 80.0000% { content: ""; }
-  61.0000%, 79.0000% { content: "U"; }
-  62.0000%, 78.0000% { content: "UX"; }
-  63.0000%, 77.0000% { content: "UX장"; }
-  64.0000%, 76.0000% { content: "UX장이"; }
-  65.0000%, 75.0000% { content: "UX장인"; }
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
 .typewriter {
   --caret: currentcolor;
+  font-size: 135%;
+  font-weight: 700;
 }
 
 .typewriter::before {
@@ -254,4 +239,32 @@ h {
 
 .typewriter.nocaret::after {
   border-right: 0;
+}
+
+.menu-wrap{
+  display: flex;
+  gap:0.7rem;
+  align-items: flex-end;
+  flex-direction: column;
+  position: fixed;
+  top:2rem;
+  right:2rem;
+  z-index: 99;
+  .toggle-btn{
+    width:3rem;
+    height:3rem;
+    background-color: #eee;
+  }
+  .menu-title{
+    font-size: 1.4rem;
+  }
+  .menu-area{
+    padding:1.4rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+  }
+}
+
+[darkmode='true'] .card-wrap .card-area .item.active .tab-icon{
+  background-color: #fff;
 }

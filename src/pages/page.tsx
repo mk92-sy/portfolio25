@@ -1,28 +1,33 @@
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import ContactPage from "./contact/page";
 import ResumePage from "./resume/page";
 import AboutPage from "./about/page";
 import WorksPage from "./works/page";
 
-import ResumeIcon from "../assets/icons/contract-filled.svg";
-import AboutMeIcon from "../assets/icons/eyes-fill.svg";
-import WorksIcon from "../assets/icons/work-order-check-outline.svg";
-import ContactIcon from "../assets/icons/send-plane-line.svg";
-
 export default function MainPage() {
+  const tabListRef = useRef<HTMLUListElement | null>(null);
   const [activeItem, setActiveItem] = useState<number>(0);
+
+  const TabClick = useCallback((menu: number) => {
+    setActiveItem(menu);
+    window.scrollTo({
+      top: 300,
+      behavior: "auto",
+    });
+  }, []);
+
   return (
     <div className="card-wrap">
-      <ul className="card-area" role="tablist">
+      <ul className="card-area" role="tablist" ref={tabListRef}>
         <li className={`item item1${activeItem === 0 ? " active" : ""}`}>
           <button
             role="tab"
             aria-label={activeItem === 0 ? "Resume 메뉴 활성화" : undefined}
             onClick={() => {
-              setActiveItem(0);
+              TabClick(0);
             }}
           >
-            <img src={ResumeIcon} alt="" className="tab-icon" />
+            <span className="tab-icon resume" />
             <span className="tab-title">Resume</span>
           </button>
         </li>
@@ -31,10 +36,10 @@ export default function MainPage() {
             role="tab"
             aria-label={activeItem === 1 ? "About 메뉴 활성화" : undefined}
             onClick={() => {
-              setActiveItem(1);
+              TabClick(1);
             }}
           >
-            <img src={AboutMeIcon} alt="" className="tab-icon" />
+            <span className="tab-icon about" />
             <span className="tab-title">About Me</span>
           </button>
         </li>
@@ -43,10 +48,10 @@ export default function MainPage() {
             role="tab"
             aria-label={activeItem === 2 ? "Works 메뉴 활성화" : undefined}
             onClick={() => {
-              setActiveItem(2);
+              TabClick(2);
             }}
           >
-            <img src={WorksIcon} alt="" className="tab-icon" />
+            <span className="tab-icon works" />
             <span className="tab-title">Works</span>
           </button>
         </li>
@@ -55,10 +60,10 @@ export default function MainPage() {
             role="tab"
             aria-label={activeItem === 3 ? "Contact 메뉴 활성화" : undefined}
             onClick={() => {
-              setActiveItem(3);
+              TabClick(3);
             }}
           >
-            <img src={ContactIcon} alt="" className="tab-icon" />
+            <span className="tab-icon contact" />
             <span className="tab-title">Contact</span>
           </button>
         </li>

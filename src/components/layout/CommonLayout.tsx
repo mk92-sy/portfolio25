@@ -2,9 +2,9 @@ import { useEffect, useRef, type ReactNode } from "react";
 
 import Header from "./Header";
 import Footer from "./Footer";
-
-import DarkModeButton from "../molecules/DarkModeButton";
+import TooltipMenu from "../organisms/TooltipMenu";
 import ScrollTopButton from "../molecules/ScrollTopButton";
+
 import { useStack } from "../../context/StackContext";
 import { useScroll } from "../../context/ScrollContext";
 interface CommonLayoutProps {
@@ -27,12 +27,12 @@ const CommonLayout = ({ children }: CommonLayoutProps) => {
   return (
     <>
       <Header />
+      <TooltipMenu />
       <main className="contents" id="Contents" ref={contentsRef}>
         {children}
       </main>
       <Footer />
       {top > 10 && <ScrollTopButton />}
-      <DarkModeButton />
     </>
   );
 };
