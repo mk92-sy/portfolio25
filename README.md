@@ -1,21 +1,21 @@
-# React + TypeScript + Vite
+## 👩‍💻 포트폴리오 2025ver.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+안녕하세요 👋
+웹 퍼블리셔로 재직중인 이승연의 포트폴리오 깃헙입니다.  
+HTML, CSS, JavaScript를 활용한 **반응형 웹 퍼블리싱**에 강점을 가지고 있으며,  
+사용자 중심의 직관적인 UI 구현을 추구합니다.
 
-While this project uses React, Vite supports many popular JS frameworks. [See all the supported frameworks](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+- 🎯 주요 기술: HTML5, CSS3, SCSS, JavaScript, jQuery, React, Typescript, NextJS
+- 📦 협업 경험: Git, GitHub, GitLab, Figma, Slack  
+- 🌐 목표: 웹 접근성과 웹 표준을 고려한 퍼블리싱으로 모두를 위한 웹 구현 & 자체 npm UI 라이브러리(접근성 준수) 구현
 
-## Deploy Your Own
+최근 프로젝트에서 리액트와 타입스크립트를 사용하여 알뜰폰 사업 시스템을 
+신규 구축하였으며 서비스 론칭까지 큰 이슈 없이 마무리 하였습니다.
 
-Deploy your own Vite project with Vercel.
+성장하는 UI/UX 개발자가 되기 위해 꾸준히 배우고 있습니다.
+작업물은 아래 링크에서 확인하실 수 있습니다.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/vite-react&template=vite-react)
+감사합니다!
 
-_Live Example: https://vite-react-example.vercel.app_
-
-### Deploying From Your Terminal
-
-You can deploy your new Vite project with a single command from your terminal using [Vercel CLI](https://vercel.com/download):
-
-```shell
-$ vercel
-```
+📫 [이메일 주소 준비중]  
+🔗 [링크 준비중]
