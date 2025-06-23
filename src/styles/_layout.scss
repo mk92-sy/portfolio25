@@ -1,0 +1,31 @@
+.inline-block{
+  display: inline-block;
+}
+
+.p {
+  &-sm {
+    padding: 1.6rem;
+  }
+  &-md {
+    padding: 2rem;
+  }
+  &-lg {
+    padding: 2.4rem;
+  }
+}
+
+.mt{
+  &-1{
+    margin-top:1rem;
+  }
+  &-2{
+    margin-top:2rem;
+  }
+  &-3{
+    margin-top:3rem;
+  }
+  &-4{
+    margin-top:4rem;
+  
+  }
+}

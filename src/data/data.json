@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "우리WON모바일 운영",
+    "description": "우리WON모바일 서비스 개선 (UX)",
+    "period": "25.06 ~",
+    "url": "https://www.wooriwonmobile.com/",
+    "thumbnail": ""
+  },
+  {
+    "id": 2,
+    "title": "우리WON모바일 시스템 구축",
+    "description": "우리은행 알뜰폰 사업 관련 프론트엔드 구축 (React, Typescript)",
+    "period": "24.07 ~ 25.05",
+    "url": "https://www.wooriwonmobile.com/",
+    "thumbnail": ""
+  },
+  {
+    "id": 3,
+    "title": "우리은행 비대면 실명확인 시스템 구축",
+    "description": "우리WON뱅킹 앱 내 실명확인 프로세스 리액트 + jsp 전환",
+    "period": "23.12 ~ 24.05",
+    "url": "https://play.google.com/store/apps/details?id=com.wooribank.smart.npib&hl=ko&pli=1",
+    "thumbnail": ""
+  },
+  {
+    "id": 4,
+    "title": "공유 명함 웹서비스 구축",
+    "description": "공유 명함 웹서비스 (비즈니스 문제로 중단)",
+    "period": "23.08 ~ 23.11",
+    "url": "-",
+    "thumbnail": ""
+  },
+  {
+    "id": 5,
+    "title": "팝콘티비 리뉴얼",
+    "description": "자사 서비스 시스템 리뉴얼 (Nextjs + Typescript + Java)",
+    "period": "22.10 ~ 23.4",
+    "url": "-",
+    "thumbnail": ""
+  },
+  {
+    "id": 6,
+    "title": "자사 서비스 운영",
+    "description": "팝콘티비 이벤트 상세, 신규 UI 추가, 타 서비스 퍼블리싱 지원 등",
+    "period": "21.03 ~ 23.4",
+    "url": "-",
+    "thumbnail": ""
+  },
+  {
+    "id": 7,
+    "title": "닷홈빌더 v2 개발",
+    "description": "기존 홈페이지 빌더를 새롭게 리뉴얼",
+    "period": "20.08 ~ 21.02",
+    "url": "-",
+    "thumbnail": ""
+  },
+  {
+    "id": 8,
+    "title": "자사 서비스 디자인 리뉴얼",
+    "description": "기능 유지한채 전반적인 디자인 리뉴얼",
+    "period": "19.04 ~ 20.07",
+    "url": "-",
+    "thumbnail": ""
+  },
+  {
+    "id": 9,
+    "title": "자사 서비스 운영",
+    "description": "자체 홈페이지 빌더 기술지원, 신규 UI 디자인 및 퍼블리싱",
+    "period": "19.01 ~ 21.02",
+    "url": "-",
+    "thumbnail": ""
+  }
+]

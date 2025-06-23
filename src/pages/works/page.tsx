@@ -1,27 +1,50 @@
+import { useState } from "react";
+import data from "../../data/data.json";
+import { useNavigate } from "react-router-dom";
+
 export default function WorksPage() {
+  const [listType, setListType] = useState("list");
+  const navigate = useNavigate();
   return (
     <div
-      className="inner p-sm"
+      className="inner p-md"
       role="tabpanel"
       id="tabpanel-works"
       data-wrap="Works"
     >
-      <p>
-        But I must explain to you how all this mistaken idea of denouncing
-        pleasure and praising pain was born and I will give you a complete
-        account of the system, and expound the actual teachings of the great
-        explorer of the truth, the master-builder of human happiness. No one
-        rejects, dislikes, or avoids pleasure itself, because it is pleasure,
-        but because those who do not know how to pursue pleasure rationally
-        encounter consequences that are extremely painful. Nor again is there
-        anyone who loves or pursues or desires to obtain pain of itself, because
-        it is pain, but because occasionally circumstances occur in which toil
-        and pain can procure him some great pleasure. To take a trivial example,
-        which of us ever undertakes laborious physical exercise, except to
-        obtain some advantage from it? But who has any right to find fault with
-        a man who chooses to enjoy a pleasure that has no annoying consequences,
-        or one who avoids a pain that produces no resultant pleasure?
-      </p>
+      <div>
+        <div>
+          <button
+            onClick={() => {
+              setListType("list");
+            }}
+          >
+            list-view
+          </button>
+          <button
+            onClick={() => {
+              setListType("grid");
+            }}
+          >
+            grid-view
+          </button>
+        </div>
+        <div className={`list-box ${listType}-view`}>
+          {data.map((item, index) => (
+            <button
+              onClick={() => {
+                navigate(item.url);
+              }}
+              className="item"
+              key={index}
+            >
+              <img src={item.thumbnail} alt="" />
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </button>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

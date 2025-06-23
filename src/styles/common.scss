@@ -3,6 +3,7 @@
 @forward './reset';
 @forward './variables';
 @forward './animation';
+@forward './layout';
 
 @use '/src/styles/mixin' as *;
 
@@ -47,18 +48,6 @@ p {
 .inner{
   margin:0 auto;
   max-width: 120rem;
-}
-
-.p {
-  &-sm {
-    padding: 1.6rem;
-  }
-  &-md {
-    padding: 2rem;
-  }
-  &-lg {
-    padding: 2.4rem;
-  }
 }
 
 h {
@@ -329,7 +318,7 @@ h {
     &::after{
       position: absolute;
       top:calc(50% - 1.2rem);
-      left:1rem;
+      left:0.8rem;
       width:2.4rem;
       height:2.4rem;
       background-color: #fff;
