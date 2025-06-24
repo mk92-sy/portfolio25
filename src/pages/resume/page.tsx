@@ -67,7 +67,7 @@ export default function ResumePage() {
           <Badge bgColor="#1881e2">Bootstrap</Badge>
         </div>
         <h4>Framework</h4>
-        <div>
+        <div className="badge-box">
           <Badge bgColor="#1881e2">Next.js</Badge>
           <Badge bgColor="#1881e2">tailwind css</Badge>
         </div>
@@ -93,11 +93,11 @@ export default function ResumePage() {
       <h3 className="sub-title">Education</h3>
       <div className="career-box">
         <dl className="item flex-between">
-          <dt>서일대학교</dt>
-          <dd>
-            <p>2011.03 ~ 2016.02 졸업</p>
-            <p>디지털디자인학부 전문학사</p>
-          </dd>
+          <dt>
+            서일대학교 <br />
+            <span className="sub-txt">디지털디자인학부 전문학사</span>
+          </dt>
+          <dd>2011.03 ~ 2016.02 졸업</dd>
         </dl>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, HTMLAttributes } from "react";
 
 interface Button extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "text";
@@ -21,7 +21,7 @@ type StackContext = {
   removeStack: (item: string) => void;
 };
 
-interface Badge extends ButtonHTMLAttributes<HTMLSpanElement> {
+interface Badge extends HTMLAttributes<HTMLSpanElement> {
   bgColor?: string;
   color?: string;
   children?: React.ReactNode;

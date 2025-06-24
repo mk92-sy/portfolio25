@@ -13,8 +13,9 @@ export default function WorksPage() {
       data-wrap="Works"
     >
       <div>
-        <div>
+        <div className="view-select">
           <button
+            className="type list"
             onClick={() => {
               setListType("list");
             }}
@@ -22,6 +23,7 @@ export default function WorksPage() {
             list-view
           </button>
           <button
+            className="type grid"
             onClick={() => {
               setListType("grid");
             }}
@@ -35,12 +37,16 @@ export default function WorksPage() {
               onClick={() => {
                 navigate(item.url);
               }}
-              className="item"
+              className="card"
               key={index}
             >
-              <img src={item.thumbnail} alt="" />
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
+              <div className="thumnail-area">
+                <img src={item.thumbnail} alt="" />
+              </div>
+              <div className="info-area">
+                <h3 className="title">{item.title}</h3>
+                <p className="description">{item.description}</p>
+              </div>
             </button>
           ))}
         </div>
