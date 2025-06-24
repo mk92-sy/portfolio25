@@ -3,6 +3,11 @@ import { useState } from "react";
 export default function ContactPage() {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
+
+  const handleExternalLink = (link: string) => {
+    window.open(link, "_blank", "noopener,noreferrer");
+  };
+
   const handleSendEmail = () => {
     const subject = encodeURIComponent(title);
     const body = encodeURIComponent(text);
@@ -28,10 +33,14 @@ export default function ContactPage() {
       <div className="contact-btns">
         <button
           className="btn github"
-          onClick={() => {}}
+          onClick={() => handleExternalLink("https://github.com/mk92-sy")}
           title="깃헙 바로가기"
         />
-
+        <button
+          className="btn blog"
+          onClick={() => handleExternalLink("https://deeev.tistory.com/")}
+          title="블로그 바로가기"
+        />
         <button className="btn call" title="전화하기" onClick={handleCall} />
       </div>
       <form className="mailto-box">
