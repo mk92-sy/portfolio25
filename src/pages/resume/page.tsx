@@ -1,3 +1,5 @@
+import Badge from "../../components/atoms/Badge";
+
 export default function ResumePage() {
   return (
     <div
@@ -9,80 +11,94 @@ export default function ResumePage() {
       <h2 className="mt-2">이승연 | Resume</h2>
       <span className="inline-block mt-1">Web Publisher</span>
 
-      <h3>Career</h3>
-      <div>
-        <dl>
+      <h3 className="sub-title">Career</h3>
+      <div className="career-box">
+        <dl className="item flex-between">
           <dt>디앤디모바일</dt>
           <dd>2023.07 ~ 현재</dd>
         </dl>
-        <dl>
+        <dl className="item flex-between">
           <dt>더이앤엠 주식회사</dt>
           <dd>2021.03 ~ 2023.04</dd>
         </dl>
-        <dl>
+        <dl className="item flex-between">
           <dt>애니시큐어 주식회사</dt>
           <dd>2019.01 ~ 2021.02</dd>
         </dl>
       </div>
-      <h3>Experience</h3>
-      <div className="inner-box">
-        <dt>이젠컴퓨터 아카데미 - 웹퍼블리셔 과정 수료</dt>
-        <dd>2018.07 ~ 2021.12</dd>
+      <h3 className="sub-title">Experience</h3>
+      <div className="career-box">
+        <dl className="item flex-between">
+          <dt>
+            이젠컴퓨터 아카데미
+            <br />
+            <span className="sub-txt">웹퍼블리셔 과정 수료</span>
+          </dt>
+          <dd>2018.07 ~ 2021.12</dd>
+        </dl>
       </div>
-      <h3>Other Experience</h3>
-      <div className="inner-box">
-        <dt>NPM UI라이브러리 배포</dt>
-        <dd>2025.06</dd>
+      <h3 className="sub-title">Other Experience</h3>
+      <div className="career-box">
+        <dl className="item flex-between">
+          <dt>
+            NPM UI라이브러리 배포
+            <br />
+            <span className="sub-txt">dotori-ui</span>
+          </dt>
+          <dd>2025.06</dd>
+        </dl>
       </div>
-      <h3>Skill</h3>
-      <div className="inner-box">
+      <h3 className="sub-title">Skill</h3>
+      <div className="skill-box">
         <h4>Programming Language</h4>
-        <ul>
-          <li>Javascript</li>
-          <li>TypeScript</li>
-          <li>HTML5</li>
-          <li>CSS3</li>
-          <li>SCSS</li>
-        </ul>
+        <div className="badge-box">
+          <Badge bgColor="#f37f31">Javascript</Badge>
+          <Badge bgColor="#f37f31">TypeScript</Badge>
+          <Badge bgColor="#f37f31">HTML5</Badge>
+          <Badge bgColor="#f37f31">CSS3</Badge>
+          <Badge bgColor="#f37f31">SCSS</Badge>
+        </div>
         <h4>Libraries</h4>
-        <ul>
-          <li>React</li>
-          <li>jQuery(Non-react Project)</li>
-          <li>styled-component</li>
-          <li>MUI</li>
-          <li>Bootstrap</li>
-        </ul>
+        <div className="badge-box">
+          <Badge bgColor="#1881e2">React</Badge>
+          <Badge bgColor="#1881e2">jQuery</Badge>
+          <Badge bgColor="#1881e2">styled-component</Badge>
+          <Badge bgColor="#1881e2">MUI</Badge>
+          <Badge bgColor="#1881e2">Bootstrap</Badge>
+        </div>
         <h4>Framework</h4>
-        <ul>
-          <li>Next.js</li>
-          <li>tailwind css</li>
-        </ul>
+        <div>
+          <Badge bgColor="#1881e2">Next.js</Badge>
+          <Badge bgColor="#1881e2">tailwind css</Badge>
+        </div>
         <h4>Package Manager</h4>
-        <ul>
-          <li>npm</li>
-          <li>yarn</li>
-          <li>pnpm</li>
-        </ul>
+        <div className="badge-box">
+          <Badge bgColor="#1881e2">npm</Badge>
+          <Badge bgColor="#1881e2">yarn</Badge>
+          <Badge bgColor="#1881e2">pnpm</Badge>
+        </div>
         <h4>Development Tools</h4>
-        <ul>
-          <li>git</li>
-          <li>github</li>
-          <li>gitlab</li>
-        </ul>
+        <div className="badge-box">
+          <Badge bgColor="#038f4e">git</Badge>
+          <Badge bgColor="#038f4e">github</Badge>
+          <Badge bgColor="#038f4e">gitlab</Badge>
+        </div>
         <h4>Accessiblity Tools</h4>
-        <ul>
-          <li>NVDA</li>
-          <li>TalkBack</li>
-          <li>VoiceOver</li>
-        </ul>
+        <div className="badge-box">
+          <Badge>NVDA</Badge>
+          <Badge>TalkBack</Badge>
+          <Badge>VoiceOver</Badge>
+        </div>
       </div>
-      <h3>Education</h3>
-      <div>
-        <dt>서일대학교 - </dt>
-        <dd>
-          <p>2011.03 ~ 2016.02 졸업</p>
-          <p>디지털디자인학부 전문학사</p>
-        </dd>
+      <h3 className="sub-title">Education</h3>
+      <div className="career-box">
+        <dl className="item flex-between">
+          <dt>서일대학교</dt>
+          <dd>
+            <p>2011.03 ~ 2016.02 졸업</p>
+            <p>디지털디자인학부 전문학사</p>
+          </dd>
+        </dl>
       </div>
     </div>
   );

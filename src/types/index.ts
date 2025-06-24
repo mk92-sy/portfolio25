@@ -21,4 +21,10 @@ type StackContext = {
   removeStack: (item: string) => void;
 };
 
-export type { Button, IconButton, StackContext };
+interface Badge extends ButtonHTMLAttributes<HTMLSpanElement> {
+  bgColor?: string;
+  color?: string;
+  children?: React.ReactNode;
+}
+
+export type { Button, IconButton, StackContext, Badge };
