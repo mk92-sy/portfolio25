@@ -8,12 +8,7 @@ export default function ResumePage() {
     >
       <h2 className="mt-2">이승연 | Resume</h2>
       <span className="inline-block mt-1">Web Publisher</span>
-      <p className="mt-3">
-        <strong>안녕하세요.👋</strong>
-        <br /> 현재 웹퍼블리셔로 재직중에 있습니다. 자바스크립트를 활용한 웹
-        프론트엔드 개발에 관심이 많으며 HTML5, CSS3, JS, React, Next.js 를 주로
-        사용합니다.
-      </p>
+
       <h3>Career</h3>
       <div>
         <dl>
