@@ -11,7 +11,7 @@ interface Button extends ButtonHTMLAttributes<HTMLButtonElement> {
 interface IconButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "text";
   size?: "sm" | "md" | "lg";
-  icon?: "sun" | "moon" | "top";
+  icon?: "sun" | "moon" | "top" | "share";
   loading?: boolean;
 }
 

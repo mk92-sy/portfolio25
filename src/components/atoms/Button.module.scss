@@ -49,6 +49,17 @@
     background-size: 2rem auto;
   }
 }
+.share{
+  width:3rem;
+  height:3rem;
+  background-color: #fff;
+  background-image: url(../../assets/icons/icon_s64_share.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 2rem auto;
+  cursor:pointer;
+  border-radius: 50%;
+}
 
 .top{
   box-shadow: 0 .3rem 1.2rem 0 rgba(0, 45, 125, .161);

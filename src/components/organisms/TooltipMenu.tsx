@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DarkModeButton from "../molecules/DarkModeButton";
+import ShareButton from "../molecules/ShareButton";
 
 const TooltipMenu = () => {
   const [isActive, setIsActive] = useState(false);
@@ -23,10 +24,9 @@ const TooltipMenu = () => {
             </li>
             <li>
               <h2 className="menu-title">• 공유하기</h2>
-              <button>공유하기 버튼</button>
+              <ShareButton />
             </li>
           </ul>
-          <button onClick={() => setIsActive(false)}></button>
         </div>
       )}
     </div>
