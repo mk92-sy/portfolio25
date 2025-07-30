@@ -96,24 +96,29 @@ h {
   max-width: 100rem;
   .card-area{
     display: flex;
-    gap: 1rem;
     position: sticky;
     top:7rem;
     left:0;
     z-index: 0;
     width:100%;
-    height:6rem;
     background-color: var(--color-bg-01);
-    border-radius: 0;
-    .item{
-      flex: 1 0 auto;
-      position: relative;
-      height: 6rem;
-      background-color: var(--color-secondary);
+    &::after{
+      position: absolute;
+      bottom:0;
+      left:0;
+      z-index: -1;
+      width: 40%;
+      height: 100%;
+      background-color:#5599ff;
+      transition: transform 0.2s ease;
+      content: '';
       border-radius: 1rem;
-      @include tablet{
-        flex: 1 1 auto;
-      }
+      will-change: transform;
+    }
+    .item{
+      position: relative;
+      width:20%;
+      transition: transform 0.3s ease-in-out;
       button{
         display: flex;
         gap:0.3rem;
@@ -128,7 +133,7 @@ h {
         .tab-icon{
           width:2.4rem;
           height:2.4rem;
-          background-color: #fff;
+          background-color: var(--color-bg-10);
           mask-repeat: no-repeat;
           mask-position: center;
           mask-size: 2.4rem auto;
@@ -156,58 +161,44 @@ h {
         }
       }
       &.active{
+       flex:0 0 auto;
        width:40%;
-       background-color: var(--color-bg-00);
-       color:var(--color-txt);
-       border-radius: 1rem 1rem 0 0;
-       @include tablet{
-        width:20%;
-       }
+       background-color:#5599ff;
+       color:#fff;
+       border-radius: 1rem;
        .tab-title{
         display: block;
        }
        .tab-icon{
-        background-color: #000;
-       }
-       &:not(:first-child)::before, &:not(:last-child)::after{
-        box-shadow: 0 0 0 0.5rem var(--color-bg-00);
-        position: absolute;
-        bottom: 0;
-        width: 2rem;
-        height: 2rem;
-        content: '';
-        border-radius: 100%;
-        transform: scale(-1);
-       }
-       &:not(:first-child)::before{
-        left: -2rem;
-        clip-path: inset(-1px 50% 50% -1px);
-       }
-       &:not(:last-child)::after{
-        right: -2rem;
-        clip-path: inset(-1px -1px 50% 50%);
+        background-color: var(--color-bg-01);
        }
       }
-      &:not(.active){
-        height: 5rem;
+    }
+    &:has(.item:nth-child(1).active){
+      &::after{
+        transform: translateX(0);
       }
     }
-    & + .box{
-      border-radius: 2rem;
-    }
-    &:has(.item:first-child.active) + .box{
-      border-radius: 0 2rem 2rem 2rem;
-    }
-    &:has(.item:last-child.active) + .box{
-      border-radius: 2rem 0 2rem 2rem;
-    }
+    &:has(.item:nth-child(2).active){
+      &::after{
+        transform: translateX(50%);
+      }
+    } 
+    &:has(.item:nth-child(3).active){
+      &::after{
+        transform: translateX(100%);
+      }
+    } 
+    &:has(.item:nth-child(4).active){
+      &::after{
+        transform: translateX(150%);
+      }
+    } 
   }
   .box{
     overflow-y:auto;
     z-index: 1;
     width:100%;
-    background-color: var(--color-bg-00);
-    border-radius: 0 0 2rem 2rem;
   }
 }
 
@@ -362,22 +353,44 @@ h {
   }
 }
 .list-box{
-  display: flex;
-  gap:1rem;
-  flex-wrap: wrap;
   margin-top:2rem;
-  .card{
+  &.list-view{
+    .card{
+      display: flex;
+      gap:1rem;
+      flex-direction: row;
+      width:100%;
+      .thumnail-area{
+        min-width: 10rem;
+        height: 10rem;
+        background-color: var(--color-bg-02);
+      }
+      & + .card{
+        margin-top: 2rem;
+      }
+    }
+  }
+  &.grid-view{
     display: flex;
     gap:1rem;
-    justify-content: flex-start;
-    flex-direction: column;
-    width:calc(50% - 0.5rem);
-    height: auto;
-    .thumnail-area{
-      height: 25vw;
-      background-color: var(--color-bg-02);
+    flex-wrap: wrap;
+    .card{
+      display: flex;
+      gap:1rem;
+      justify-content: flex-start;
+      flex-direction: column;
+      width:calc(50% - 0.5rem);
+      height: auto;
+      .thumnail-area{
+        height: 25vw;
+        background-color: var(--color-bg-02);
+      }
     }
-    .info-area{
+  }
+  .thumnail-area{
+    border-radius: 1rem;
+  }
+  .info-area{
       display: flex;
       gap:0.4rem;
       flex-direction: column;
@@ -391,7 +404,7 @@ h {
         line-height: 1.2;
       }
     }
-  }
+  
 }
 
 .contact-btns{

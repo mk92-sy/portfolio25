@@ -7,49 +7,47 @@ export default function WorksPage() {
   const navigate = useNavigate();
   return (
     <div
-      className="inner p-md"
+      className="inner"
       role="tabpanel"
       id="tabpanel-works"
       data-wrap="Works"
     >
-      <div>
-        <div className="view-select">
+      <div className="view-select mt-2">
+        <button
+          className="type list"
+          onClick={() => {
+            setListType("list");
+          }}
+        >
+          list-view
+        </button>
+        <button
+          className="type grid"
+          onClick={() => {
+            setListType("grid");
+          }}
+        >
+          grid-view
+        </button>
+      </div>
+      <div className={`list-box ${listType}-view`}>
+        {data.map((item, index) => (
           <button
-            className="type list"
             onClick={() => {
-              setListType("list");
+              navigate(`/works/${item.id}`);
             }}
+            className="card"
+            key={index}
           >
-            list-view
+            <div className="thumnail-area">
+              <img src={item.thumbnail} alt="" />
+            </div>
+            <div className="info-area">
+              <h3 className="title">{item.title}</h3>
+              <p className="description">{item.description}</p>
+            </div>
           </button>
-          <button
-            className="type grid"
-            onClick={() => {
-              setListType("grid");
-            }}
-          >
-            grid-view
-          </button>
-        </div>
-        <div className={`list-box ${listType}-view`}>
-          {data.map((item, index) => (
-            <button
-              onClick={() => {
-                navigate(item.url);
-              }}
-              className="card"
-              key={index}
-            >
-              <div className="thumnail-area">
-                <img src={item.thumbnail} alt="" />
-              </div>
-              <div className="info-area">
-                <h3 className="title">{item.title}</h3>
-                <p className="description">{item.description}</p>
-              </div>
-            </button>
-          ))}
-        </div>
+        ))}
       </div>
     </div>
   );

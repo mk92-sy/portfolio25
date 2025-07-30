@@ -20,12 +20,12 @@ export default function ContactPage() {
 
   return (
     <div
-      className="inner p-md"
+      className="inner"
       role="tabpanel"
       id="tabpanel-contact"
       data-wrap="Contact"
     >
-      <p>
+      <p className="mt-4">
         웹은 예쁜 디자인을 구현하는 것에 그쳐선 안됩니다.
         <br />
         모든 마크업에는 의도가 있어야 하며 그 의도는 누구에게나 닿아야 합니다.

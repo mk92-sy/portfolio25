@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 
 type ScrollContextType = {
-  top: number;
+  scrollY: number;
 };
 
 const ScrollContext = createContext<ScrollContextType | undefined>(undefined);
@@ -9,10 +9,10 @@ const ScrollContext = createContext<ScrollContextType | undefined>(undefined);
 export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [top, setTop] = useState<number>(0);
+  const [scrollY, setScrollY] = useState<number>(0);
   useEffect(() => {
     const handleScroll = () => {
-      setTop(window.scrollY);
+      setScrollY(window.scrollY);
     };
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -20,12 +20,10 @@ export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({
     };
   }, []);
 
-  /*   useEffect(() => {
-    console.log("top : ", top);
-  }, [top]); */
-
   return (
-    <ScrollContext.Provider value={{ top }}>{children}</ScrollContext.Provider>
+    <ScrollContext.Provider value={{ scrollY }}>
+      {children}
+    </ScrollContext.Provider>
   );
 };
 

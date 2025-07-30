@@ -3,12 +3,12 @@ import Badge from "../../components/atoms/Badge";
 export default function ResumePage() {
   return (
     <div
-      className="inner p-md"
+      className="inner"
       role="tabpanel"
       id="tabpanel-resume"
       data-wrap="Resume"
     >
-      <h2 className="mt-2">이승연 | Resume</h2>
+      <h2 className="mt-4">이승연 | Resume</h2>
       <span className="inline-block mt-1">Web Publisher</span>
 
       <h3 className="sub-title">Career</h3>

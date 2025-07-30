@@ -14,7 +14,7 @@ interface CommonLayoutProps {
 const CommonLayout = ({ children }: CommonLayoutProps) => {
   const { stacks } = useStack();
   const contentsRef = useRef<HTMLElement | null>(null);
-  const { top } = useScroll();
+  const { scrollY } = useScroll();
   useEffect(() => {
     if (contentsRef.current) {
       if (stacks.length > 0) {
@@ -32,7 +32,7 @@ const CommonLayout = ({ children }: CommonLayoutProps) => {
         {children}
       </main>
       <Footer />
-      {top > 10 && <ScrollTopButton />}
+      {scrollY > 10 && <ScrollTopButton />}
     </>
   );
 };

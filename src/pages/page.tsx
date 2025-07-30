@@ -3,10 +3,14 @@ import ContactPage from "./contact/page";
 import ResumePage from "./resume/page";
 import AboutPage from "./about/page";
 import WorksPage from "./works/page";
+import { useLocation } from "react-router-dom";
 
 export default function MainPage() {
+  const location = useLocation();
   const tabListRef = useRef<HTMLUListElement | null>(null);
-  const [activeItem, setActiveItem] = useState<number>(0);
+  const [activeItem, setActiveItem] = useState<number>(
+    location.state?.activeMenu ?? 0
+  );
 
   const TabClick = useCallback((menu: number) => {
     setActiveItem(menu);
