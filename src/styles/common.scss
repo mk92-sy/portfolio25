@@ -18,9 +18,9 @@ html,body{
 
 body {
   background-color: var(--color-bg-01);
+  color: var(--color-txt);
   font-family: 'Pretendard', sans-serif;
   font-size: 1.6rem;
-  color: var(--color-txt);
 }
 
 #root{
@@ -47,8 +47,8 @@ p {
 }
 
 .inner{
-  margin:0 auto;
   max-width: 120rem;
+  margin:0 auto;
 }
 
 h {
@@ -79,27 +79,27 @@ h {
 .flex{
   &-between{
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
   }
   &-center{
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
   }
 }
 .card-wrap{
-  margin:0 auto;
-  padding-bottom: 6rem;
   z-index: 1;
   width:calc(100% - 4rem);
   max-width: 100rem;
+  margin:0 auto;
+  padding-bottom: 6rem;
   .card-area{
-    display: flex;
     position: sticky;
     top:7rem;
     left:0;
     z-index: 0;
+    display: flex;
     width:100%;
     background-color: var(--color-bg-01);
     &::after{
@@ -109,10 +109,10 @@ h {
       z-index: -1;
       width: 40%;
       height: 100%;
-      background-color:#5599ff;
-      transition: transform 0.2s ease;
-      content: '';
       border-radius: 1rem;
+      background-color:#5599ff;
+      content: '';
+      transition: transform 0.2s ease;
       will-change: transform;
     }
     .item{
@@ -120,16 +120,16 @@ h {
       width:20%;
       transition: transform 0.3s ease-in-out;
       button{
-        display: flex;
-        gap:0.3rem;
-        align-items: center;
-        justify-content: center;
         z-index: 1;
+        display: flex;
         width:100%;
         height:5rem;
         font-size: 1.3rem;
         text-align: center;
         letter-spacing: -0.1px;
+        justify-content: center;
+        align-items: center;
+        gap:0.3rem;
         .tab-icon{
           width:2.4rem;
           height:2.4rem;
@@ -161,11 +161,11 @@ h {
         }
       }
       &.active{
-       flex:0 0 auto;
        width:40%;
+       border-radius: 1rem;
        background-color:#5599ff;
        color:#fff;
-       border-radius: 1rem;
+       flex:0 0 auto;
        .tab-title{
         display: block;
        }
@@ -196,8 +196,8 @@ h {
     } 
   }
   .box{
-    overflow-y:auto;
     z-index: 1;
+    overflow-y:auto;
     width:100%;
   }
 }
@@ -217,14 +217,14 @@ h {
 }
 
 .typewriter::before {
-  animation: typing 13.5s infinite;
   content: "";
+  animation: typing 13.5s infinite;
 }
 
 .typewriter::after {
   border-right: 1px solid var(--caret);
-  animation: blink 0.5s linear infinite;
   content: "";
+  animation: blink 0.5s linear infinite;
 }
 
 .typewriter.thick::after {
@@ -236,17 +236,17 @@ h {
 }
 
 .menu-wrap{
-  display: flex;
-  gap:0.7rem;
-  align-items: flex-end;
-  flex-direction: column;
   position: fixed;
   top:2rem;
   right:2rem;
   z-index: 99;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap:0.7rem;
   .toggle-btn{
-    overflow: hidden;
     position: relative;
+    overflow: hidden;
     width:2.4rem;
     height:2.4rem;
     .line{
@@ -254,9 +254,9 @@ h {
       right:0;
       width:100%;
       height:0.4rem;
+      border-radius: 0.4rem;
       background-color: #eee;
       transition: transform .2s linear;
-      border-radius: 0.4rem;
       will-change: transform;
       &.line1{
         top:0;
@@ -287,15 +287,15 @@ h {
   .menu-area{
     padding:0 1.4rem;
     border:1px solid var(--color-bg-04);
-    box-shadow: 0 .3rem 1.2rem 0 rgba(0, 45, 125, .161);
-    background-color: var(--color-bg-02);
     border-radius: 0.8rem;
+    background-color: var(--color-bg-02);
+    box-shadow: 0 .3rem 1.2rem 0 rgba(0, 45, 125, .161);
     li{
       display: flex;
-      gap:2rem;
-      align-items: center;
-      justify-content: space-between;
       padding:1.4rem 0;
+      justify-content: space-between;
+      align-items: center;
+      gap:2rem;
       & + li{
         border-top:1px solid var(--color-bg-04);
       }
@@ -329,27 +329,27 @@ h {
 .skill-box{
   h4{
     padding:1.6rem 0 1rem;
+    color:var(--color-bg-06);
     font-size: 1.5rem;
     font-weight: 500;
-    color:var(--color-bg-06);
   }
 }
 .badge-box{
   display: flex;
-  gap:0.5rem;
-  align-items: flex-start;
-  justify-content: flex-start;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap:0.5rem;
 }
 .view-select{
   display: flex;
-  gap:1rem;
   justify-content: flex-end;
+  gap:1rem;
   .type{
-    padding:0 2rem;
     height: 4rem;
-    background-color: var(--color-bg-01);
+    padding:0 2rem;
     border-radius: 0.6rem;
+    background-color: var(--color-bg-01);
   }
 }
 .list-box{
@@ -357,12 +357,12 @@ h {
   &.list-view{
     .card{
       display: flex;
-      gap:1rem;
-      flex-direction: row;
       width:100%;
+      flex-direction: row;
+      gap:1rem;
       .thumnail-area{
-        min-width: 10rem;
         height: 10rem;
+        min-width: 10rem;
         background-color: var(--color-bg-02);
       }
       & + .card{
@@ -372,15 +372,15 @@ h {
   }
   &.grid-view{
     display: flex;
-    gap:1rem;
     flex-wrap: wrap;
+    gap:1rem;
     .card{
       display: flex;
-      gap:1rem;
-      justify-content: flex-start;
-      flex-direction: column;
       width:calc(50% - 0.5rem);
       height: auto;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap:1rem;
       .thumnail-area{
         height: 25vw;
         background-color: var(--color-bg-02);
@@ -392,8 +392,8 @@ h {
   }
   .info-area{
       display: flex;
-      gap:0.4rem;
       flex-direction: column;
+      gap:0.4rem;
       
       .title{
         font-size: 1.7rem;
@@ -409,15 +409,15 @@ h {
 
 .contact-btns{
   display: flex;
-  gap:1rem;
   margin:3rem 0;
+  gap:1rem;
   .btn{
-    outline: none;
-    box-shadow:0 0 0 1px inset var(--color-bg-10);
     position: relative;
     width:4rem;
     height:4rem;
     border-radius: 0.6rem;
+    outline: none;
+    box-shadow:0 0 0 1px inset var(--color-bg-10);
     &::after{
       position: absolute;
       top:calc(50% - 1.2rem);
@@ -447,14 +447,14 @@ h {
 }
 
 input, textarea{
+  width:100%;
   padding:1.3rem 1.6rem;
   border:0;
-  box-shadow:0 0 0 1px inset var(--color-bg-08);
-  width:100%;
-  background-color: transparent;
-  line-height: 1.3;
-  color:var(--color-bg-10);
   border-radius: 0.6rem;
+  background-color: transparent;
+  color:var(--color-bg-10);
+  line-height: 1.3;
+  box-shadow:0 0 0 1px inset var(--color-bg-08);
   &:focus-visible{
     outline:none;
     outline-offset: 0;
@@ -464,17 +464,17 @@ input, textarea{
 
 .mailto-box{
   display: flex;
-  gap:1rem;
   flex-direction: column;
+  gap:1rem;
   textarea{
     min-height: 20rem;
   }
   .btn{
-    margin-top:1rem;
-    box-shadow:0 0 0 1px inset var(--color-bg-08);
     min-height: 4rem;
-    text-align: center;
+    margin-top:1rem;
     border-radius: 0.6rem;
+    text-align: center;
+    box-shadow:0 0 0 1px inset var(--color-bg-08);
   }
 }
 
