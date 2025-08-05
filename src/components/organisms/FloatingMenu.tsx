@@ -2,21 +2,21 @@ import { useState } from "react";
 import DarkModeButton from "../molecules/DarkModeButton";
 import ShareButton from "../molecules/ShareButton";
 
-const TooltipMenu = () => {
+const FloatingMenu = () => {
   const [isActive, setIsActive] = useState(false);
   return (
-    <div className="menu-wrap">
+    <div className="floating-menu">
       <button
-        className={`toggle-btn${isActive ? " active" : ""}`}
+        className={`hamburger-button${isActive ? " active" : ""}`}
         aria-label={`메뉴 ${isActive ? "닫기" : "열기"}`}
         onClick={() => setIsActive(!isActive)}
       >
-        <span className="line line1"></span>
-        <span className="line line2"></span>
-        <span className="line line3"></span>
+        <span className="hamburger-line line1"></span>
+        <span className="hamburger-line line2"></span>
+        <span className="hamburger-line line3"></span>
       </button>
       {isActive && (
-        <div className="menu-area">
+        <div className="menu-dropdown">
           <ul>
             <li>
               <h2 className="menu-title">• 테마 설정</h2>
@@ -33,4 +33,4 @@ const TooltipMenu = () => {
   );
 };
 
-export default TooltipMenu;
+export default FloatingMenu;

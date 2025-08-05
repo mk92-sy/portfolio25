@@ -88,13 +88,13 @@ h {
     align-items: center;
   }
 }
-.card-wrap{
+.main-container{
   z-index: 1;
   width:calc(100% - 4rem);
   max-width: 100rem;
   margin:0 auto;
   padding-bottom: 6rem;
-  .card-area{
+  .navigation-tabs{
     position: sticky;
     top:7rem;
     left:0;
@@ -115,7 +115,7 @@ h {
       transition: transform 0.2s ease;
       will-change: transform;
     }
-    .item{
+    .tab-item{
       position: relative;
       width:20%;
       transition: transform 0.3s ease-in-out;
@@ -150,12 +150,12 @@ h {
             mask-image: url(../assets/icons/icon_s64_contact.svg);
           }
         }
-        .tab-title{
+        .tab-label{
           display: none;
           font-size: 1.8rem;
         }
         @include tablet{
-          .tab-title{
+          .tab-label{
             display: block;
           }
         }
@@ -166,7 +166,7 @@ h {
        background-color:#5599ff;
        color:#fff;
        flex:0 0 auto;
-       .tab-title{
+       .tab-label{
         display: block;
        }
        .tab-icon{
@@ -174,28 +174,28 @@ h {
        }
       }
     }
-    &:has(.item:nth-child(1).active){
+    &:has(.tab-item:nth-child(1).active){
       &::after{
         transform: translateX(0);
       }
     }
-    &:has(.item:nth-child(2).active){
+    &:has(.tab-item:nth-child(2).active){
       &::after{
         transform: translateX(50%);
       }
     } 
-    &:has(.item:nth-child(3).active){
+    &:has(.tab-item:nth-child(3).active){
       &::after{
         transform: translateX(100%);
       }
     } 
-    &:has(.item:nth-child(4).active){
+    &:has(.tab-item:nth-child(4).active){
       &::after{
         transform: translateX(150%);
       }
     } 
   }
-  .box{
+  .content-area{
     z-index: 1;
     overflow-y:auto;
     width:100%;
@@ -203,7 +203,7 @@ h {
 }
 
 @include desktop {
-  .card-wrap .card-area .item{
+  .main-container .navigation-tabs .tab-item{
     button{
       font-size: 1.6rem;
     }
@@ -235,7 +235,7 @@ h {
   border-right: 0;
 }
 
-.menu-wrap{
+.floating-menu{
   position: fixed;
   top:2rem;
   right:2rem;
@@ -244,12 +244,12 @@ h {
   flex-direction: column;
   align-items: flex-end;
   gap:0.7rem;
-  .toggle-btn{
+  .hamburger-button{
     position: relative;
     overflow: hidden;
     width:2.4rem;
     height:2.4rem;
-    .line{
+    .hamburger-line{
       position: absolute;
       right:0;
       width:100%;
@@ -270,13 +270,13 @@ h {
       }
     }
     &.active{
-      .line1{
+      .hamburger-line.line1{
         transform: translate(0, calc(50% + 0.8rem)) rotate(45deg);
       }
-      .line2{
+      .hamburger-line.line2{
         transform: translateX(100%);
       }
-      .line3{
+      .hamburger-line.line3{
         transform: translate(0, calc(-50% - 0.8rem)) rotate(-45deg);
       }
     }
@@ -284,7 +284,7 @@ h {
   .menu-title{
     font-size: 1.4rem;
   }
-  .menu-area{
+  .menu-dropdown{
     padding:0 1.4rem;
     border:1px solid var(--color-bg-04);
     border-radius: 0.8rem;
@@ -478,6 +478,6 @@ input, textarea{
   }
 }
 
-[darkmode='true'] .card-wrap .card-area .item.active .tab-icon{
+[darkmode='true'] .main-container .navigation-tabs .tab-item.active .tab-icon{
   background-color: #fff;
 }

@@ -1,5 +1,5 @@
 /* 헤더 */
-.bg{
+.hero-section{
   display: flex;
   align-items: center;
   padding:2rem;
@@ -12,13 +12,13 @@
     line-height: 1.4;
     color:#fff;
   }
-  &-inner{
+  &-content{
     margin:0 auto;
     width:100%;
     max-width: 100rem;
   }
 }
-.header {
+.navigation-bar {
   display: flex;
   align-items: flex-end;
   position: sticky;
@@ -28,24 +28,22 @@
   height:7rem;
   color:var(--color-txt);
   color:#fff;
-  .inner{
+  .navigation-content{
     display: inline-flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    flex-direction: column;
-    margin:0 auto;
+    height: 100%;
     padding:0 2rem;
-    background: linear-gradient(0deg, var(--color-bg-01),#2e3752);
-    .title{
+    .brand-title{
       display: inline-flex;
       gap:1rem;
       align-items: center;
       position: relative;
-      .thumbnail{
+      .profile-image{
         display: flex;
         position: relative;
        /*  transform: translateX(-3.4rem); */
-        .img{
+        .avatar{
              border:3px solid #fff;
           width:2.4rem;
           height:2.4rem;
@@ -53,7 +51,7 @@
           border-radius: 50%;
         }
       }
-      .status{
+      .online-status{
         position: absolute;
         right:0;
         bottom:0;
@@ -71,8 +69,8 @@
         font-size: 2.4rem;
         font-weight: 700;
       }
-      &.show{
-        .thumnail{
+      &.visible{
+        .profile-image{
           transform: translateX(0);
         }
       }

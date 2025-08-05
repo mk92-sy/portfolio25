@@ -21,9 +21,9 @@ export default function MainPage() {
   }, []);
 
   return (
-    <div className="card-wrap">
-      <ul className="card-area" role="tablist" ref={tabListRef}>
-        <li className={`item item1${activeItem === 0 ? " active" : ""}`}>
+    <div className="main-container">
+      <ul className="navigation-tabs" role="tablist" ref={tabListRef}>
+        <li className={`tab-item tab-resume${activeItem === 0 ? " active" : ""}`}>
           <button
             role="tab"
             aria-label={activeItem === 0 ? "Resume 메뉴 활성화" : undefined}
@@ -32,10 +32,10 @@ export default function MainPage() {
             }}
           >
             <span className="tab-icon resume" />
-            <span className="tab-title">Resume</span>
+            <span className="tab-label">Resume</span>
           </button>
         </li>
-        <li className={`item item2${activeItem === 1 ? " active" : ""}`}>
+        <li className={`tab-item tab-about${activeItem === 1 ? " active" : ""}`}>
           <button
             role="tab"
             aria-label={activeItem === 1 ? "About 메뉴 활성화" : undefined}
@@ -44,10 +44,10 @@ export default function MainPage() {
             }}
           >
             <span className="tab-icon about" />
-            <span className="tab-title">About Me</span>
+            <span className="tab-label">About Me</span>
           </button>
         </li>
-        <li className={`item item3${activeItem === 2 ? " active" : ""}`}>
+        <li className={`tab-item tab-works${activeItem === 2 ? " active" : ""}`}>
           <button
             role="tab"
             aria-label={activeItem === 2 ? "Works 메뉴 활성화" : undefined}
@@ -56,10 +56,10 @@ export default function MainPage() {
             }}
           >
             <span className="tab-icon works" />
-            <span className="tab-title">Works</span>
+            <span className="tab-label">Works</span>
           </button>
         </li>
-        <li className={`item item4${activeItem === 3 ? " active" : ""}`}>
+        <li className={`tab-item tab-contact${activeItem === 3 ? " active" : ""}`}>
           <button
             role="tab"
             aria-label={activeItem === 3 ? "Contact 메뉴 활성화" : undefined}
@@ -68,11 +68,11 @@ export default function MainPage() {
             }}
           >
             <span className="tab-icon contact" />
-            <span className="tab-title">Contact</span>
+            <span className="tab-label">Contact</span>
           </button>
         </li>
       </ul>
-      <div className="box">
+      <div className="content-area">
         {activeItem === 0 ? (
           <ResumePage />
         ) : activeItem === 1 ? (

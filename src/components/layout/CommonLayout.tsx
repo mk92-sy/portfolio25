@@ -2,7 +2,7 @@ import { useEffect, useRef, type ReactNode } from "react";
 
 import Header from "./Header";
 import Footer from "./Footer";
-import TooltipMenu from "../organisms/TooltipMenu";
+import FloatingMenu from "../organisms/FloatingMenu";
 import ScrollTopButton from "../molecules/ScrollTopButton";
 
 import { useStack } from "../../context/StackContext";
@@ -27,7 +27,7 @@ const CommonLayout = ({ children }: CommonLayoutProps) => {
   return (
     <>
       <Header />
-      <TooltipMenu />
+      <FloatingMenu />
       <main className="contents" id="Contents" ref={contentsRef}>
         {children}
       </main>
