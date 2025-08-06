@@ -410,6 +410,9 @@ h {
         height: 10rem;
         min-width: 10rem;
         background-color: var(--color-bg-02);
+        img{
+          height: 100%;
+        }
       }
       & + .card{
         margin-top: 2rem;
