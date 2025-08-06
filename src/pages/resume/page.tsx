@@ -9,11 +9,6 @@ export default function ResumePage() {
       data-wrap="Resume"
     >
       <section className="card">
-        <h2>이승연 | Resume</h2>
-        <span className="inline-block mt-1">Web Publisher</span>
-      </section>
-
-      <section className="card">
         <h3 className="sub-title">Career</h3>
         <div className="career-box">
           <dl className="item flex-between">

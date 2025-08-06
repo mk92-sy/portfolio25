@@ -21,34 +21,6 @@
   }
 }
 
-// 타이핑 애니메이션 스타일
-.typewriter {
-  display: inline-block;
-  position: relative;
-  color: #fff;
-  font-weight: 700;
-  font-size: 2rem;
-  &::after {
-    content: '';
-    position: absolute;
-    right: -4px;
-    top: 0;
-    height: 100%;
-    width: 2px;
-    background-color: #fff;
-    animation: blink 1s infinite;
-  }
-}
-
-@keyframes blink {
-  0%, 50% {
-    opacity: 1;
-  }
-  51%, 100% {
-    opacity: 0;
-  }
-}
-
 .navigation-bar {
   display: flex;
   align-items: center;
@@ -62,17 +34,38 @@
   color:var(--color-txt);
   background-color: var(--color-bg-01);
   color:#fff;
+  &::after{
+    content: '';
+    position: absolute;
+    background-color: var(--color-bg-01);
+    width:100%;
+    height: 3rem;
+    border-radius: 3rem 3rem 0 0;
+    overflow: hidden;
+    z-index: -1;
+    bottom:100%;
+  }
+  &::before{
+    content: '';
+    position: absolute;
+    width:2rem;
+    height: 3rem;
+  }
   .navigation-content{
     display: inline-flex;
     align-items: center;
     justify-content: center;
     height: 100%;
     padding:0 2rem;
+    @media (min-width:1040px) {
+      padding:0;
+    }
     .brand-title{
       display: inline-flex;
       gap:1rem;
       align-items: center;
       position: relative;
+      color:var(--color-bg-10);
       .profile-image{
         display: flex;
         position: relative;

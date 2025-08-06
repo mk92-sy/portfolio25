@@ -1,21 +1,18 @@
-import { useState, useRef, useCallback } from "react";
+import { useRef, useCallback } from "react";
 import ContactPage from "./contact/page";
 import ResumePage from "./resume/page";
 import AboutPage from "./about/page";
 import WorksPage from "./works/page";
-import { useLocation } from "react-router-dom";
+import { useActiveContent } from "../context/ActiveContents";
 
 export default function MainPage() {
-  const location = useLocation();
   const tabListRef = useRef<HTMLUListElement | null>(null);
-  const [activeItem, setActiveItem] = useState<number>(
-    location.state?.activeMenu ?? 0
-  );
+  const { activeContent, setActiveContent } = useActiveContent();
 
   const TabClick = useCallback((menu: number) => {
-    setActiveItem(menu);
+    setActiveContent(menu);
     window.scrollTo({
-      top: 300,
+      top: 0,
       behavior: "auto",
     });
   }, []);
@@ -23,10 +20,10 @@ export default function MainPage() {
   return (
     <div className="main-container">
       <ul className="navigation-tabs" role="tablist" ref={tabListRef}>
-        <li className={`tab-item tab-resume${activeItem === 0 ? " active" : ""}`}>
+        <li className={`tab-item tab-resume${activeContent === 0 ? " active" : ""}`}>
           <button
             role="tab"
-            aria-label={activeItem === 0 ? "Resume 메뉴 활성화" : undefined}
+            aria-label={activeContent === 0 ? "Resume 메뉴 활성화" : undefined}
             onClick={() => {
               TabClick(0);
             }}
@@ -35,10 +32,10 @@ export default function MainPage() {
             <span className="tab-label">Resume</span>
           </button>
         </li>
-        <li className={`tab-item tab-about${activeItem === 1 ? " active" : ""}`}>
+        <li className={`tab-item tab-about${activeContent === 1 ? " active" : ""}`}>
           <button
             role="tab"
-            aria-label={activeItem === 1 ? "About 메뉴 활성화" : undefined}
+            aria-label={activeContent === 1 ? "About 메뉴 활성화" : undefined}
             onClick={() => {
               TabClick(1);
             }}
@@ -47,10 +44,10 @@ export default function MainPage() {
             <span className="tab-label">About Me</span>
           </button>
         </li>
-        <li className={`tab-item tab-works${activeItem === 2 ? " active" : ""}`}>
+        <li className={`tab-item tab-works${activeContent === 2 ? " active" : ""}`}>
           <button
             role="tab"
-            aria-label={activeItem === 2 ? "Works 메뉴 활성화" : undefined}
+            aria-label={activeContent === 2 ? "Works 메뉴 활성화" : undefined}
             onClick={() => {
               TabClick(2);
             }}
@@ -59,10 +56,10 @@ export default function MainPage() {
             <span className="tab-label">Works</span>
           </button>
         </li>
-        <li className={`tab-item tab-contact${activeItem === 3 ? " active" : ""}`}>
+        <li className={`tab-item tab-contact${activeContent === 3 ? " active" : ""}`}>
           <button
             role="tab"
-            aria-label={activeItem === 3 ? "Contact 메뉴 활성화" : undefined}
+            aria-label={activeContent === 3 ? "Contact 메뉴 활성화" : undefined}
             onClick={() => {
               TabClick(3);
             }}
@@ -73,11 +70,11 @@ export default function MainPage() {
         </li>
       </ul>
       <div className="content-area">
-        {activeItem === 0 ? (
+        {activeContent === 0 ? (
           <ResumePage />
-        ) : activeItem === 1 ? (
+        ) : activeContent === 1 ? (
           <AboutPage />
-        ) : activeItem === 2 ? (
+        ) : activeContent === 2 ? (
           <WorksPage />
         ) : (
           <ContactPage />

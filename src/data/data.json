@@ -15,7 +15,7 @@
     "period": "24.07 ~ 25.05",
     "technologies": "React, Typescript, Nextjs",
     "url": "https://www.wooriwonmobile.com/",
-    "thumbnail": "https://cdn.jsdelivr.net/gh/mk92-sy/portfolio25/images/wooriwonmobile_mobile.PNG"
+    "thumbnail": "https://cdn.jsdelivr.net/gh/mk92-sy/portfolio25@main/public/images/wooriwonmobile_desktop.PNG"
   },
   {
     "id": 3,
@@ -46,15 +46,6 @@
   },
   {
     "id": 6,
-    "title": "자사 서비스 운영",
-    "description": "팝콘티비 이벤트 상세, 신규 UI 추가, 타 서비스 퍼블리싱 지원 등",
-    "period": "21.03 ~ 23.4",
-    "technologies": "React, Typescript, Nextjs",
-    "url": "-",
-    "thumbnail": ""
-  },
-  {
-    "id": 7,
     "title": "닷홈빌더 v2 개발",
     "description": "기존 홈페이지 빌더를 새롭게 리뉴얼",
     "period": "20.08 ~ 21.02",
@@ -63,19 +54,10 @@
     "thumbnail": ""
   },
   {
-    "id": 8,
+    "id": 7,
     "title": "자사 서비스 디자인 리뉴얼",
     "description": "기능 유지한채 전반적인 디자인 리뉴얼",
     "period": "19.04 ~ 20.07",
-    "technologies": "React, Typescript, Nextjs",
-    "url": "-",
-    "thumbnail": ""
-  },
-  {
-    "id": 9,
-    "title": "자사 서비스 운영",
-    "description": "자체 홈페이지 빌더 기술지원, 신규 UI 디자인 및 퍼블리싱",
-    "period": "19.01 ~ 21.02",
     "technologies": "React, Typescript, Nextjs",
     "url": "-",
     "thumbnail": ""

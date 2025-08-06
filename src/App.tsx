@@ -9,6 +9,7 @@ import { StackProvider } from "./context/StackContext";
 import { RefProvider } from "./context/RefContext";
 import { DarkModeProvider } from "./context/DarkModeContext";
 import { ScrollProvider } from "./context/ScrollContext";
+import { ActiveContentsProvider } from "./context/ActiveContents";
 
 interface RouteCommon {
   loader?: LoaderFunction;
@@ -73,7 +74,9 @@ const App = () => {
       <ScrollProvider>
         <RefProvider>
           <StackProvider>
-            <RouterProvider router={router} />
+            <ActiveContentsProvider>
+              <RouterProvider router={router} />
+            </ActiveContentsProvider>
           </StackProvider>
         </RefProvider>
       </ScrollProvider>

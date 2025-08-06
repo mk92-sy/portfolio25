@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import data from "../../data/data.json";
 
@@ -8,6 +8,13 @@ export default function ProjectDetailPage() {
   const [project] = useState(
     id && data.find((project) => project.id === parseInt(id))
   );
+
+  useEffect(()=>{
+    window.scrollTo({
+      top: 0,
+      behavior: "auto",
+    });
+  },[])
 
   return (
     <div className="inner p-sm" data-wrap="ProjectDetail">

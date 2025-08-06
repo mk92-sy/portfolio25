@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import data from "../../data/data.json";
 import { useNavigate } from "react-router-dom";
 
@@ -28,6 +28,13 @@ export default function WorksPage() {
       setCurrentPage(currentPage + 1);
     }
   };
+
+  useEffect(()=>{
+    window.scrollTo({
+      top: 0,
+      behavior: "auto",
+    });
+  },[currentPage])
   
   return (
     <div
