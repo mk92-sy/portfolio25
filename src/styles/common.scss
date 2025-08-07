@@ -5,7 +5,7 @@
 @forward './animation';
 @forward './layout';
 
-@use '/src/styles/mixin' as *;
+@use './mixin' as *;
 
 html {
   font-size: 10px;
@@ -39,6 +39,8 @@ a, button{
 
 p {
   line-height: 1.5;
+  color: var(--color-bg-07);
+  font-weight: 300;
 }
 
 .contents {
@@ -134,9 +136,7 @@ h {
       position: relative;
       width:20%;
       transition: transform 0.3s ease-in-out;
-      border:1px solid var(--color-bg-02);
       border-radius: 1rem;
- 
       button{
         z-index: 1;
         display: flex;
@@ -262,45 +262,25 @@ h {
   position: fixed;
   top:2rem;
   right:2rem;
+  height: 2.4rem;
   z-index: 99;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap:0.7rem;
-  .hamburger-button{
+  .config-btn{
     position: relative;
     overflow: hidden;
     width:2.4rem;
     height:2.4rem;
-    .hamburger-line{
-      position: absolute;
-      right:0;
-      width:100%;
-      height:0.4rem;
-      border-radius: 0.4rem;
-      background-color: var(--color-bg-10);
-      transition: transform .2s linear;
-      will-change: transform;
-      &.line1{
-        top:0;
-      }
-      &.line2{
-        top:calc(50% - 0.2rem);
-        width:80%;
-      }
-      &.line3{
-        bottom:0;
-      }
+    transition: all .3s ease-in-out;
+    transform: rotate(0deg);
+    transform-origin: center;
+    z-index: 2;
+    svg path{
+      fill:var(--color-bg-10);
+      transition: all .3s linear;
     }
     &.active{
-      .hamburger-line.line1{
-        transform: translate(0, calc(50% + 0.8rem)) rotate(45deg);
-      }
-      .hamburger-line.line2{
-        transform: translateX(100%);
-      }
-      .hamburger-line.line3{
-        transform: translate(0, calc(-50% - 0.8rem)) rotate(-45deg);
+      transform: rotate(90deg);
+      svg path{
+        fill:var(--color-bg-07)
       }
     }
   }
@@ -308,20 +288,26 @@ h {
     font-size: 1.4rem;
   }
   .menu-dropdown{
-    padding:0 1.4rem;
-    border:1px solid var(--color-bg-04);
-    border-radius: 0.8rem;
-    background-color: var(--color-bg-00);
+    position: absolute;
+    right: 0;
+    top:2rem;
+    display: flex;
+    flex-direction: column;
+    padding:1rem;
+    gap:0.8rem;
+    border-radius: 3rem;
+    background-color: var(--color-bg-02);
     box-shadow: 0 .3rem 1.2rem 0 rgba(0, 45, 125, .161);
-    li{
-      display: flex;
-      padding:1.4rem 0;
-      justify-content: space-between;
-      align-items: center;
-      gap:2rem;
-      & + li{
-        border-top:1px solid var(--color-bg-04);
-      }
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all .3s ease-out;
+    will-change: transform;
+    z-index: 1;
+    pointer-events: none;
+    &.active{
+      transform: translateY(10px);
+      opacity: 1;
+      pointer-events:inherit;
     }
   }
 }
@@ -372,7 +358,6 @@ h {
     align-items: center;
     width: 4rem;
     height: 4rem;
-    border: 1px solid var(--color-bg-08);
     border-radius: 0.6rem;
     background-color: var(--color-bg-02);
     color: var(--color-txt);
@@ -381,13 +366,11 @@ h {
     
     &:hover {
       background-color: var(--color-bg-08);
-      border-color: var(--color-bg-10);
     }
     
     &.active {
       background-color: var(--color-bg-10);
-      color: #fff;
-      border-color: var(--color-bg-10);
+      color: var(--color-bg-00);
     }
     
     svg {
@@ -438,7 +421,7 @@ h {
         padding:2rem 2rem 2rem 0;
       }
       & + .card{
-        margin-top: 2rem;
+        margin-top: 1.6rem;
       }
     }
   }
@@ -500,11 +483,18 @@ h {
       
       .title{
         font-size: 1.7rem;
-        line-height: 1.2;
       }
       .description{
         font-size: 1.4rem;
+      }
+      .title, .description{
         line-height: 1.2;
+        display: -webkit-box;              /* 플렉스 박스처럼 동작 */
+        -webkit-box-orient: vertical;      /* 수직 방향으로 정렬 */
+        -webkit-line-clamp: 2;             /* 최대 줄 수 지정 */
+        overflow: hidden;                  /* 넘치는 텍스트 숨김 */
+        text-overflow: ellipsis;          /* 말줄임표 (…) 표시 */
+        word-break: break-word;  
       }
     }
   
@@ -513,6 +503,7 @@ h {
 .contact-btns{
   display: flex;
   gap:1rem;
+  flex-wrap: wrap;
   .btn{
     position: relative;
     width:fit-content;
@@ -584,6 +575,7 @@ input, textarea{
   }
   textarea{
     min-height: 20rem;
+    resize: none;
   }
   label{
     font-weight: 700;
@@ -595,6 +587,14 @@ input, textarea{
     text-align: center;
     background-color:  #5599ff;
     color:#fff;
+  }
+  .length{
+    display: flex;
+    justify-content: flex-end;
+    margin-top:0.6rem;
+    font-size: 1.3rem;
+    letter-spacing: -0.5px;
+    color:var(--color-bg-05)
   }
 }
 
@@ -612,7 +612,6 @@ input, textarea{
     align-items: center;
     width: 4rem;
     height: 4rem;
-    border: 1px solid var(--color-bg-08);
     border-radius: 0.6rem;
     background-color: var(--color-bg-02);
     color: var(--color-txt);
@@ -623,7 +622,6 @@ input, textarea{
     
     &:hover:not(:disabled) {
       background-color: var(--color-bg-08);
-      border-color: var(--color-bg-10);
     }
     
     &:disabled {
@@ -633,8 +631,7 @@ input, textarea{
     
     &.active {
       background-color: var(--color-bg-10);
-      color: #fff;
-      border-color: var(--color-bg-10);
+      color: var(--color-bg-00);
     }
     
     &.prev,

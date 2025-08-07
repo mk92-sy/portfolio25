@@ -52,9 +52,9 @@ export default function WorksPage() {
           aria-label="리스트 뷰"
         >
           <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-            <rect x="2" y="3" width="16" height="2" rx="1"/>
-            <rect x="2" y="8" width="16" height="2" rx="1"/>
-            <rect x="2" y="13" width="16" height="2" rx="1"/>
+            <rect x="2" y="2" width="16" height="3" rx="1"/>
+            <rect x="2" y="8" width="16" height="3" rx="1"/>
+            <rect x="2" y="14" width="16" height="3" rx="1"/>
           </svg>
         </button>
         <button

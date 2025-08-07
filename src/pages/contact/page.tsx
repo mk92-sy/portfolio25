@@ -1,21 +1,43 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function ContactPage() {
   const [title, setTitle] = useState("");
+  const [email, setEmail] = useState("");
   const [text, setText] = useState("");
 
   const handleExternalLink = (link: string) => {
     window.open(link, "_blank", "noopener,noreferrer");
   };
 
-  const handleSendEmail = () => {
-    const subject = encodeURIComponent(title);
-    const body = encodeURIComponent(text);
-    window.location.href = `mailto:seungyeoni.dev@gmail.com?subject=${subject}&body=${body}`;
-  };
+  // const handleSendEmail = () => {
+  //   const subject = encodeURIComponent(title);
+  //   const body = encodeURIComponent(text);
+  //   window.location.href = `mailto:seungyeoni.dev@gmail.com?subject=${subject}&body=${body}`;
+  // };
 
   const handleCall = () => {
     window.location.href = "tel:01025690323";
+  };
+
+  const form = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!form.current) return;
+
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        form.current!,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        () => alert("메일이 성공적으로 전송되었습니다!"),
+        () => alert("메일 전송에 실패했습니다.")
+      );
   };
 
   return (
@@ -49,26 +71,64 @@ export default function ContactPage() {
       <section className="card">
         <h2 className="sub-title">Send a Message</h2>
         <p className="mt-1">간단한 메시지를 남겨주시면 이메일로 바로 전달됩니다. 궁금한 점이나 협업 제안이 있다면 편하게 작성해 주세요.</p>
-      <form className="mailto-box mt-2">
-        <label htmlFor="title">제목</label>
-        <input
-          id="title"
-          placeholder="문의드립니다"
-          value={title}
-          onChange={(e) => {
-            setTitle(e.target.value);
-          }}
-        />
-        <label htmlFor="content">내용</label>
-        <textarea
-          id="content"
-          placeholder="안녕하세요. 포트폴리오 관련하여 문의드립니다."
-          value={text}
-          onChange={(e) => {
-            setText(e.target.value);
-          }}
-        />
-        <button className="btn" onClick={handleSendEmail}>
+      <form className="mailto-box mt-2" ref={form} onSubmit={sendEmail}>
+        <div>
+          <label htmlFor="title">제목</label>
+          <input
+            id="title"
+            className="mt-1"
+            name="title"
+            placeholder="문의드립니다"
+            value={title}
+            type="text"
+            onChange={(e) => {
+              setTitle(e.target.value);
+            }}
+            maxLength={50}
+            required
+          />
+          <div className="length">
+            {title.length} / 50
+          </div>
+        </div>
+        <div>
+          <label htmlFor="email">이메일</label>
+          <input
+            id="email"
+            className="mt-1"
+            name="email"
+            placeholder="이메일을 입력해주세요"
+            value={email}
+            type="email"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            maxLength={50}
+            required
+          />
+          <div className="length">
+            {email.length} / 50
+          </div>
+        </div>
+        <div>
+          <label htmlFor="content">내용</label>
+          <textarea
+            id="content"
+            className="mt-1"
+            name="message"
+            placeholder="안녕하세요. 포트폴리오 관련하여 문의드립니다."
+            value={text}
+            onChange={(e) => {
+              setText(e.target.value);
+            }}
+            maxLength={300}
+            required
+          />
+          <div className="length">
+            {text.length} / 300
+          </div>
+        </div>
+        <button type="submit" className="btn">
           메일 문의하기
         </button>
       </form>

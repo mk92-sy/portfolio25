@@ -50,15 +50,25 @@
   }
 }
 .share{
+  position: relative;
   width:3rem;
   height:3rem;
-  background-color: #fff;
-  background-image: url(../../assets/icons/icon_s64_share.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 2rem auto;
+  background-color: var(--color-bg-04);
   cursor:pointer;
   border-radius: 50%;
+  &::after{
+    content: '';
+    position: absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height: 100%;
+    mask-image: url(../../assets/icons/icon_s64_share.svg);
+    mask-repeat: no-repeat;
+    mask-position: left 4px top 5px;
+    mask-size: 2rem auto;
+    background-color: var(--color-bg-09);
+  }
 }
 
 .top{
