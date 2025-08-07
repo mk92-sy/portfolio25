@@ -43,7 +43,7 @@ export default function WorksPage() {
       id="tabpanel-works"
       data-wrap="Works"
     >
-      <div className="view-select mt-2">
+      <div className="view-select">
         <button
           className={`type ${listType === "list" ? "active" : ""}`}
           onClick={() => {

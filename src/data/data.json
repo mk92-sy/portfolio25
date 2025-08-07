@@ -1,28 +1,28 @@
 [
   {
     "id": 1,
-    "title": "우리WON모바일 운영",
+    "title": "우리WON모바일 운영(예정)",
     "description": "우리WON모바일 서비스 개선 (UX)",
-    "period": "25.06 ~",
-    "technologies": "React, Typescript, Nextjs",
+    "period": "25.08 ~ 26.08",
+    "technologies": "React, Typescript, react-router-dom, module.css, scss",
     "url": "https://www.wooriwonmobile.com/",
-    "thumbnail": ""
+    "thumbnail": "https://cdn.jsdelivr.net/gh/mk92-sy/portfolio25@main/public/images/wooriwonmobile_mobile.PNG"
   },
   {
     "id": 2,
     "title": "우리WON모바일 시스템 구축",
-    "description": "우리은행 알뜰폰 사업 관련 프론트엔드 구축 (React, Typescript)",
+    "description": "우리은행 알뜰폰 신규 사업으로 인한 시스템 구축 프로젝트. 서비스 화면은 React, Typescript로 개발되었으며 어드민은 JSP로 만들어졌다. LG유플러스 기반 알뜰폰 사업.",
     "period": "24.07 ~ 25.05",
-    "technologies": "React, Typescript, Nextjs",
+    "technologies": "React, Typescript, react-router-dom, module.css, scss, Mui",
     "url": "https://www.wooriwonmobile.com/",
     "thumbnail": "https://cdn.jsdelivr.net/gh/mk92-sy/portfolio25@main/public/images/wooriwonmobile_desktop.PNG"
   },
   {
     "id": 3,
     "title": "우리은행 비대면 실명확인 시스템 구축",
-    "description": "우리WON뱅킹 앱 내 실명확인 프로세스 리액트 + jsp 전환",
+    "description": "우리WON뱅킹 앱 내 실명확인 프로세스 서비스 및 어드민 전부 리액트로 제작.",
     "period": "23.12 ~ 24.05",
-    "technologies": "React, Typescript, Nextjs",
+    "technologies": "React, react-router-dom, module.css, scss, context API, Mui",
     "url": "https://play.google.com/store/apps/details?id=com.wooribank.smart.npib&hl=ko&pli=1",
     "thumbnail": ""
   },
@@ -31,7 +31,7 @@
     "title": "공유 명함 웹서비스 구축",
     "description": "공유 명함 웹서비스 (비즈니스 문제로 중단)",
     "period": "23.08 ~ 23.11",
-    "technologies": "React, Typescript, Nextjs",
+    "technologies": "React, module.css, scss",
     "url": "-",
     "thumbnail": ""
   },
@@ -42,7 +42,7 @@
     "period": "22.10 ~ 23.4",
     "technologies": "React, Typescript, Nextjs",
     "url": "-",
-    "thumbnail": ""
+    "thumbnail": "https://cdn.jsdelivr.net/gh/mk92-sy/portfolio25@main/public/images/popkontv_renewal.PNG"
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "period": "20.08 ~ 21.02",
     "technologies": "React, Typescript, Nextjs",
     "url": "-",
-    "thumbnail": ""
+    "thumbnail": "https://cdn.jsdelivr.net/gh/mk92-sy/portfolio25@main/public/images/dothome_builder.PNG"
   },
   {
     "id": 7,
@@ -60,6 +60,6 @@
     "period": "19.04 ~ 20.07",
     "technologies": "React, Typescript, Nextjs",
     "url": "-",
-    "thumbnail": ""
+    "thumbnail": "https://cdn.jsdelivr.net/gh/mk92-sy/portfolio25@main/public/images/dothome_renewal.PNG"
   }
 ]
