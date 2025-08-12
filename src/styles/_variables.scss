@@ -11,39 +11,41 @@
   --font-size-H4: 1.8rem;
   --font-size-H5: 1.6rem;
 
-  --color-txt: #222;
   --color-bg-00: #ffffff;
-  --color-bg-01: #ebe8e8;
-  --color-bg-02: #ced3d3;
-  --color-bg-03: #b1b0b0;
-  --color-bg-04: #999494;
-  --color-bg-05: #8a8282;
-  --color-bg-06: #524f4f;
-  --color-bg-07: #444141;
-  --color-bg-08: #353333;
-  --color-bg-09: #2c2c2c;
-  --color-bg-10: #181818;
+  --color-bg-01: #f5eee9;
+  --color-bg-02: #e8ddd6;
+  --color-bg-03: #d9c9c0;
+  --color-bg-04: #cbb7ae;
+  --color-bg-05: #bfa89f;
+  --color-bg-06: #a78d84;
+  --color-bg-07: #8f756d;
+  --color-bg-08: #775f58;
+  --color-bg-09: #5f4a44;
+  --color-bg-10: #3e2e2a;
+  --color-txt: #222222;
 
   --color-white: #fff;
 
-  --color-primary:#333446;
+  --color-primary:#B85C38;
   --color-secondary:#7F8CAA;
   --color-tertiary:#B8CFCE;
+
+  --color-active: #5bd670;
 }
-[darkmode="true"] {
+.dark {
   &:root{
-    --color-bg-00: #181818;
-    --color-bg-01: #2c2c2c;
-    --color-bg-02: #353333;
-    --color-bg-03: #444141;
-    --color-bg-04: #524f4f;
-    --color-bg-05: #8a8282;
-    --color-bg-06: #999494;
-    --color-bg-07: #b1b0b0;
-    --color-bg-08: #ced3d3;
-    --color-bg-09: #ebe8e8;
-    --color-bg-10: #ffffff;
-    --color-txt: #EAEFEF;
+    --color-bg-00: #1e1e1e;
+    --color-bg-01: #2a2523;
+    --color-bg-02: #3a302d;
+    --color-bg-03: #4a3c38;
+    --color-bg-04: #5a4843;
+    --color-bg-05: #6a554e;
+    --color-bg-06: #7a6159;
+    --color-bg-07: #8a6e64;
+    --color-bg-08: #9a7b6f;
+    --color-bg-09: #aa897b;
+    --color-bg-10: #b99788;
+    --color-txt: #E8E3DF;
   }
 }
 

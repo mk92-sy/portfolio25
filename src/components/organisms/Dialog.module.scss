@@ -1,0 +1,46 @@
+.dialog{
+    &-backdrop{
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0,0,0,0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+    &-content{
+        display: flex;
+        flex-direction: column;
+        gap:1.2rem;
+        background:var(--color-bg-00);
+        padding: 2rem;
+        border-radius: 1.6rem;
+        max-width: 400px;
+        width: calc(100% - 4rem);
+    }
+    &-title{
+        font-size: 2rem;
+    }
+    &-desc{
+
+    }
+    &-btn-area{
+        display: flex;
+        gap:1rem;
+        > button{
+            flex:1;
+            padding:1.5rem 0;
+            text-align: center;
+            border-radius: 0.6rem;
+            &:only-child{
+                background-color: var(--color-primary);
+            }
+        }
+        .cancel-btn{
+            background-color: var(--color-bg-03);
+        }
+        .confirm-btn{
+            background-color: var(--color-primary);
+        }
+    }
+}

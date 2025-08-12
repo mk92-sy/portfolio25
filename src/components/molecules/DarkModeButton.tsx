@@ -14,6 +14,7 @@ const DarkModeButton = () => {
     <IconButton
       key={`${isDarkMode ? "sun" : "moon"}`}
       icon={`${isDarkMode ? "sun" : "moon"}`}
+      title={`${isDarkMode ? "라이트" : "다크"} 모드로 전환하기`}
       onClick={() => {
         if (timer === 0) setTimer(1000);
         toggleDarkMode();

@@ -53,11 +53,13 @@ export default function ProjectDetailPage() {
             <div>
               <h2>{project.title}</h2>
               <p className="mt-2">{project.description}</p>
-              <img
-                src={project.thumbnail}
-                alt={project.title}
-                className="mt-4 img-fluid"
-              />
+              {project.thumbnail !== '' && project.title !== "" && (
+                <img
+                  src={project.thumbnail}
+                  alt={project.title}
+                  className="mt-4 img-fluid"
+                />
+              )}
               <p className="mt-2">사용 기술: {project.technologies}</p>
               <p className="mt-2">
                 프로젝트 링크:{" "}
@@ -72,20 +74,20 @@ export default function ProjectDetailPage() {
             <p>해당 프로젝트를 찾을 수 없습니다.</p>
           )}
 
-          <div className="btn-area">
+          <div className="btn-area mt-4">
             {!isFirst && (
-              <button className="btn btn-primary mt-4" onClick={goToPrevious}>
+              <button className="btn btn-primary" onClick={goToPrevious}>
                 이전 글
               </button>
             )}
             <button
-              className="btn btn-primary mt-4"
+              className="btn btn-primary"
               onClick={() => navigate("/", { state: { activeMenu } })}
             >
               목록으로 돌아가기
             </button>
             {!isLast && (
-              <button className="btn btn-primary mt-4" onClick={goToNext}>
+              <button className="btn btn-primary" onClick={goToNext}>
                 다음 글
               </button>
             )}

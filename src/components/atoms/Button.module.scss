@@ -79,11 +79,28 @@
   left:2rem;
   width:4rem;
   height:4rem;
-  background-color: #fff;
-  background-image: url(../../assets/icons/icon_s64_top.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 2.4rem auto;
+  background-color: var(--color-bg-10);
   cursor:pointer;
   border-radius: 50%;
+  transform: scale(0);
+  opacity: 0;
+  transition: all .3s ease-in-out;
+  will-change: transform;
+  &::after{
+    content: '';
+    width:4rem;
+    height: 4rem;
+    position: absolute;
+    left:0;
+    bottom:0;
+    background-color: var(--color-bg-01);
+    mask-image: url(../../assets/icons/icon_s64_top.svg);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 2.4rem auto;
+  }
+  &:global(.active){
+    opacity: 1;
+    transform: scale(1);
+  }
 }

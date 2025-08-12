@@ -1,7 +1,8 @@
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
-
+import { useDialog } from "../../hooks/useDialog";
 export default function ContactPage() {
+  const { openDialog } = useDialog();
   const [title, setTitle] = useState("");
   const [email, setEmail] = useState("");
   const [text, setText] = useState("");
@@ -34,10 +35,22 @@ export default function ContactPage() {
         form.current!,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
-      .then(
-        () => alert("메일이 성공적으로 전송되었습니다!"),
-        () => alert("메일 전송에 실패했습니다.")
-      );
+      .then(() => {
+        openDialog({
+          type: 'alert',
+          title: '알림',
+          message: '메일이 성공적으로 전송되었습니다!',
+          confirmText: '확인',
+        });
+      })
+      .catch((error) => {
+        openDialog({
+          type: 'alert',
+          title: '알림',
+          message: `메일 전송에 실패했습니다. ${error}`,
+          confirmText: '확인',
+        });
+      });
   };
 
   return (

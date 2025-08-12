@@ -1,39 +1,35 @@
-import { useEffect, useRef, type ReactNode } from "react";
+import { type ReactNode } from "react";
 
 import Header from "./Header";
 import Footer from "./Footer";
 import FloatingMenu from "../organisms/FloatingMenu";
 import ScrollTopButton from "../molecules/ScrollTopButton";
 
-import { useStack } from "../../context/StackContext";
-import { useScroll } from "../../context/ScrollContext";
+// import { useStack } from "../../context/StackContext";
 interface CommonLayoutProps {
   children: ReactNode;
 }
 
 const CommonLayout = ({ children }: CommonLayoutProps) => {
-  const { stacks } = useStack();
-  const contentsRef = useRef<HTMLElement | null>(null);
-  const { scrollY } = useScroll();
-  useEffect(() => {
-    if (contentsRef.current) {
-      if (stacks.length > 0) {
-        contentsRef.current.inert = true;
-      } else {
-        contentsRef.current.inert = false;
-      }
-    }
-  }, [stacks]);
+  // const { stacks } = useStack();
+  // const contentsRef = useRef<HTMLElement | null>(null);
+  // useEffect(() => {
+  //   if (contentsRef.current) {
+  //     if (stacks.length > 0) {
+  //       contentsRef.current.inert = true;
+  //     } else {
+  //       contentsRef.current.inert = false;
+  //     }
+  //   }
+  // }, [stacks]);
   return (
-    <>
+    <main className="contents" id="Contents">
       <Header />
       <FloatingMenu />
-      <main className="contents" id="Contents" ref={contentsRef}>
-        {children}
-      </main>
+      {children}
       <Footer />
-      {scrollY > 10 && <ScrollTopButton />}
-    </>
+      <ScrollTopButton />
+    </main>
   );
 };
 

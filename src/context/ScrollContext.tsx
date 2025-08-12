@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { throttle } from "lodash";
 
 type ScrollContextType = {
   scrollY: number;
@@ -11,12 +12,14 @@ export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [scrollY, setScrollY] = useState<number>(0);
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = throttle(() => {
       setScrollY(window.scrollY);
-    };
+    }, 100); // 100ms마다 한 번만 실행
+  
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      handleScroll.cancel(); // cleanup for lodash throttle
     };
   }, []);
 

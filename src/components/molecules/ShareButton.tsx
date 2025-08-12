@@ -18,7 +18,7 @@ const ShareButton = () => {
     }
   };
 
-  return <IconButton key={`share`} icon={`share`} onClick={handleShare} />;
+  return <IconButton key={`share`} icon={`share`} title='공유하기' onClick={handleShare} />;
 };
 
 export default ShareButton;

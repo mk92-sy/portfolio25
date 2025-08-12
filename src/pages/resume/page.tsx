@@ -10,18 +10,27 @@ export default function ResumePage() {
     >
       <section className="card">
         <h3 className="sub-title">Career</h3>
-        <div className="career-box">
-          <dl className="item flex-between">
+        <div className="career-box stepper">
+          <dl className="item">
             <dt>디앤디모바일</dt>
-            <dd>2023.07 ~ 현재</dd>
+            <dd>
+              <p>금융권 및 기타 웹퍼블리싱 파견 업무 (정규직)</p>
+              <p>2023.07 ~ 현재</p>
+            </dd>
           </dl>
-          <dl className="item flex-between">
+          <dl className="item">
             <dt>더이앤엠 주식회사</dt>
-            <dd>2021.03 ~ 2023.04</dd>
+            <dd>
+              <p>서비스 관련 웹퍼블리싱 및 운영 업무 (정규직)</p>
+              <p>2021.03 ~ 2023.04 (2년 2개월)</p>
+            </dd>
           </dl>
-          <dl className="item flex-between">
+          <dl className="item">
             <dt>애니시큐어 주식회사</dt>
-            <dd>2019.01 ~ 2021.02</dd>
+            <dd>
+              <p>서비스 관련 디자인, 웹퍼블리싱 및 운영 업무 (CS포함 / 정규직)</p>
+              <p>2019.01 ~ 2021.02 (2년 2개월)</p>
+            </dd>
           </dl>
         </div>
       </section>
@@ -29,13 +38,13 @@ export default function ResumePage() {
       <section className="card">
         <h3 className="sub-title">Experience</h3>
         <div className="career-box">
-          <dl className="item flex-between">
+          <dl className="item">
             <dt>
               이젠컴퓨터 아카데미
               <br />
               <span className="sub-txt">웹퍼블리셔 과정 수료</span>
             </dt>
-            <dd>2018.07 ~ 2021.12</dd>
+            <dd>2018.07 ~ 2018.12</dd>
           </dl>
         </div>
       </section>
@@ -43,7 +52,7 @@ export default function ResumePage() {
       <section className="card">
         <h3 className="sub-title">Other Experience</h3>
         <div className="career-box">
-          <dl className="item flex-between">
+          <dl className="item">
             <dt>
               NPM UI라이브러리 배포
               <br />
@@ -102,7 +111,7 @@ export default function ResumePage() {
       <section className="card">
         <h3 className="sub-title">Education</h3>
         <div className="career-box">
-          <dl className="item flex-between">
+          <dl className="item">
             <dt>
               서일대학교 <br />
               <span className="sub-txt">디지털디자인학부 전문학사</span>

@@ -1,24 +1,22 @@
 @use "../../styles/mixin" as *;
 
 /* 헤더 */
-.hero-section{
+.visual-section{
   position: relative;
-  display: flex;
-  align-items: center;
-  padding:2rem;
   width:100%;
   height: 30rem;
   background-color: #2e3752;
-  h1{
-    font-size: 2.8rem;
-    font-weight: 300;
-    line-height: 1.4;
-    color:#fff;
-  }
-  &-content{
-    margin:0 auto;
-    width:100%;
-    max-width: 100rem;
+  &::before{
+    position: absolute;
+    bottom: 1.2rem;
+    left:calc(50% - 4rem);
+    z-index: 1;
+    overflow: hidden;
+    width: 8rem;
+    height: 0.6rem;
+    border-radius: 3rem;
+    background-color: var(--color-bg-04);
+    content: "";
   }
   &::after{
     position: absolute;
@@ -32,6 +30,36 @@
     background-color: var(--color-bg-01);
     content: "";
   }
+  &.Clear{
+    background: linear-gradient(to bottom, #aee2ff, #fefcea);
+  }
+  &.Clouds{
+    background: linear-gradient(to bottom, #d7d2cc, #304352);
+  }
+  &.Rain{
+    background: linear-gradient(to bottom, #4e54c8, #8f94fb);
+  }
+  &.Drizzle{
+    background: linear-gradient(to bottom, #89f7fe, #66a6ff);
+  }
+  &.Thunderstorm{
+    background: linear-gradient(to bottom, #232526, #414345);
+  }
+  &.Snow{
+    background: linear-gradient(to bottom, #e0eafc, #cfdef3);
+  }
+  &.Dust, &.Sand, &.Haze{
+    background: linear-gradient(to bottom, #bdc3c7, #2c3e50);
+  }
+  &.Mist, &.Fog, &.Ash{
+    background: linear-gradient(to bottom, #c2b280, #e0cda9);
+  }
+  &.Squall{
+    background: linear-gradient(to bottom, #3a6073, #16222a);
+  }
+  &.Tornado{
+    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+  }
 }
 
 .navigation-bar {
@@ -39,7 +67,7 @@
   align-items: center;
   position: sticky;
   top:0;
-  z-index: 1;
+  z-index: 2;
   width:100%;
   height:7rem;
   max-width: 100rem;
@@ -67,7 +95,9 @@
       gap:1rem;
       align-items: center;
       position: relative;
+      font-size: var(--font-size-H2);
       color:var(--color-bg-10);
+      letter-spacing: -1px;
       .profile-image{
         display: flex;
         position: relative;
@@ -84,12 +114,19 @@
       }
       .online-status{
         position: absolute;
-        right:0;
+        right:-1.6rem;
         bottom:0;
         width:1rem;
         height:1rem;
-        background-color: #73ff73;
+        background-color: var(--color-active);
         border-radius: 50%;
+        &::after{
+          content: '';
+          width:100%;
+          height: 100%;
+          position: absolute;
+          animation: sparkle 1.5s infinite ease-in-out;
+        }
       }
       .logo{
         border:3px solid #fff;
@@ -120,3 +157,13 @@
   }
 }
 
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px var(--color-active);
+  }
+  50% {
+    opacity: 0.3;
+    box-shadow: 0 0 2px var(--color-active);
+  }
+}

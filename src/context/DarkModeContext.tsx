@@ -1,4 +1,10 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 
 type DarkModeContextType = {
   isDarkMode: boolean;
@@ -9,30 +15,60 @@ const DarkModeContext = createContext<DarkModeContextType | undefined>(
   undefined
 );
 
-export const DarkModeProvider: React.FC<{ children: React.ReactNode }> = ({
+export const DarkModeProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  // 🌟 초기 상태: localStorage에서 불러오기 + 시스템 다크 모드 감지
-  const getStoredDarkMode = () => {
-    const stored = localStorage.getItem("darkMode");
-    if (stored !== null) return stored === "true"; // localStorage 값이 있으면 사용
-    return window.matchMedia("(prefers-color-scheme: dark)").matches; // 없으면 시스템 모드 사용
-  };
+  const [isDarkMode, setIsDarkMode] = useState<boolean | undefined>(undefined);
 
-  const [isDarkMode, setIsDarkMode] = useState(getStoredDarkMode);
+  // 🌙 시스템 설정 감지 함수
+  const getSystemDarkMode = () =>
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  // 🌟 다크 모드 변경 시 localStorage & CSS 변수 업데이트
+  // 🌟 초기 상태 설정 (SSR-safe)
   useEffect(() => {
-    document.documentElement.setAttribute(
-      "darkmode",
-      isDarkMode ? "true" : "false"
-    );
+    const stored = localStorage.getItem("darkMode");
+    if (stored !== null) {
+      setIsDarkMode(stored === "true");
+    } else {
+      setIsDarkMode(getSystemDarkMode());
+    }
+  }, []);
+
+  // 🌟 시스템 설정 변경 감지
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleChange = (e: MediaQueryListEvent) => {
+      const stored = localStorage.getItem("darkMode");
+      if (stored === null) {
+        setIsDarkMode(e.matches);
+      }
+    };
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
+
+  // 🌟 상태 변경 시 localStorage & HTML 클래스 업데이트
+  useEffect(() => {
+    if (isDarkMode === undefined) return;
+
+    document.documentElement.classList.toggle("dark", isDarkMode);
     localStorage.setItem("darkMode", isDarkMode.toString());
+
+    // 모바일 브라우저 상단 색상 변경
+    const themeColor = document.querySelector("meta[name='theme-color']");
+    if (themeColor) {
+      themeColor.setAttribute("content", isDarkMode ? "#121212" : "#ffffff");
+    }
   }, [isDarkMode]);
 
   const toggleDarkMode = () => {
     setIsDarkMode((prev) => !prev);
   };
+
+  // 아직 초기 상태가 설정되지 않았다면 렌더링 지연
+  if (isDarkMode === undefined) {
+    return null;
+  }
 
   return (
     <DarkModeContext.Provider value={{ isDarkMode, toggleDarkMode }}>

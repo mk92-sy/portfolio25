@@ -31,6 +31,7 @@ body {
 }
 
 a, button{
+  cursor: pointer;
   &:focus-visible{
     outline:2px solid var(--color-bg-10);
     outline-offset: 3px;
@@ -39,7 +40,7 @@ a, button{
 
 p {
   line-height: 1.5;
-  color: var(--color-bg-07);
+  color: var(--color-bg-09);
   font-weight: 300;
 }
 
@@ -57,6 +58,7 @@ p {
 .card{
   background-color: var(--color-bg-00);
   padding:2.8rem 2.2rem;
+  overflow: hidden;
   &:first-child{
     margin-top:0;
   }
@@ -104,7 +106,7 @@ h {
   }
 }
 .main-container{
-  z-index: 1;
+  z-index: 2;
   width:calc(100% - 4rem);
   max-width: 100rem;
   margin:0 auto;
@@ -118,7 +120,7 @@ h {
     width:100%;
     background-color: var(--color-bg-01);
     gap:0.4rem;
-    z-index: 1;
+    z-index: 2;
     &::after{
       position: absolute;
       bottom:0;
@@ -127,7 +129,7 @@ h {
       width: 40%;
       height: 100%;
       border-radius: 1rem;
-      background-color:#5599ff;
+      background-color:var(--color-primary);
       content: '';
       transition: transform 0.2s ease;
       will-change: transform;
@@ -185,14 +187,14 @@ h {
       &.active{
        width:40%;
        border-radius: 1rem;
-       background-color:#5599ff;
+       background-color:var(--color-primary);
        color:#fff;
        flex:0 0 auto;
        .tab-label{
         display: block;
        }
        .tab-icon{
-        background-color: var(--color-bg-01);
+        background-color: #fff;
        }
       }
     }
@@ -263,7 +265,7 @@ h {
 
 .floating-menu{
   position: fixed;
-  top:2rem;
+  top:1.3rem;
   right:2rem;
   height: 2.4rem;
   z-index: 99;
@@ -272,19 +274,29 @@ h {
     overflow: hidden;
     width:2.4rem;
     height:2.4rem;
-    transition: all .3s ease-in-out;
-    transform: rotate(0deg);
-    transform-origin: center;
     z-index: 2;
-    svg path{
-      fill:var(--color-bg-10);
-      transition: all .3s linear;
+    background-color: var(--color-bg-00);
+    padding:1rem;
+    border-radius: 50%;
+    border:1px solid var(--color-bg-05);
+    svg{
+      transition: all .3s ease-in-out;
+      transform: rotate(0deg) translateZ(0);
+      transform-origin: center center;
+      backface-visibility: hidden;
+      transition: transform .3s linear;
+      path{
+        fill:var(--color-bg-06);
+        transition: fill .3s linear;
+      }
     }
     &.active{
-      transform: rotate(90deg);
-      svg path{
-        fill:var(--color-bg-07)
-      }
+      svg{
+        transform: rotate(180deg) translateZ(0);
+        path{
+          fill:var(--color-bg-10)
+        }
+      } 
     }
   }
   .menu-title{
@@ -301,14 +313,15 @@ h {
     border-radius: 3rem;
     background-color: var(--color-bg-02);
     box-shadow: 0 .3rem 1.2rem 0 rgba(0, 45, 125, .161);
-    transform: translateY(-20px);
+    transform: translateY(-10px);
     opacity: 0;
     transition: all .3s ease-out;
     will-change: transform;
     z-index: 1;
     pointer-events: none;
+    border:1px solid var(--color-bg-06);
     &.active{
-      transform: translateY(10px);
+      transform: translateY(30px);
       opacity: 1;
       pointer-events:inherit;
     }
@@ -329,9 +342,78 @@ h {
 }
 .career-box{
   .item{
+    display: flex;
+    gap:1rem;
+    align-items: flex-start;
+    flex-direction: column;
     padding:1.4rem 0;
     & + .item{
       border-top:1px dotted var(--color-bg-09);
+    }
+    @include tablet{
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &:only-child{
+      padding-bottom: 0;
+    }
+  }
+  &.stepper{
+    position: relative;
+    padding-left: 2rem;
+    margin-top:1rem;
+    margin-left: 1rem;
+    .item{
+      position: relative;
+      border:0;
+      background-color: var(--color-bg-01);
+      padding:2rem;
+      border-radius: 2rem;
+      &::after{
+        content: '';
+        position: absolute;
+        left:-2.5rem;
+        top:calc(50% - 0.5rem);
+        width:1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background-color: var(--color-bg-03);
+      }
+      & + .item{
+        margin-top:1.6rem;
+      }
+      &:first-child::after{
+        width:2rem;
+        height: 2rem;
+        left:-3rem;
+        top:calc(50% - 1rem);
+        background-color: var(--color-bg-00);
+        border:3px solid var(--color-primary);
+        z-index: 1;
+      }
+      dt{
+        font-weight: 700;
+      }
+      dd{
+        font-weight: 300;
+        font-size: 1.4rem;
+        @include tablet{
+          text-align: right;
+        }
+      }
+    }
+    &::after{
+      content: '';
+      position: absolute;
+      left:-0.1rem;
+      @include tablet{
+        top:3.6rem;
+      }
+      top:0;
+      width:0.2rem;
+      height: 100%;
+      background-color: var(--color-bg-03);
     }
   }
 }
@@ -339,7 +421,7 @@ h {
 .skill-box{
   h4{
     padding:1.6rem 0 1rem;
-    color:var(--color-bg-06);
+    color:var(--color-bg-08);
     font-size: 1.5rem;
     font-weight: 500;
   }
@@ -404,6 +486,7 @@ h {
     .card{
       display: flex;
       width:100%;
+      min-height: 12rem;
       flex-direction: row;
       gap:1rem;
       box-sizing: border-box;
@@ -422,6 +505,9 @@ h {
       }
       .info-area{
         padding:2rem 2rem 2rem 0;
+        &:only-child{
+          padding-left: 2rem;
+        }
       }
       & + .card{
         margin-top: 1.6rem;
@@ -449,6 +535,9 @@ h {
       }
       .info-area{
         padding:0 2rem 2.4rem;
+        &:only-child{
+          padding:2.4rem 2rem;
+        }
       }
       & + .card, &:first-child{
         margin:0;
@@ -500,7 +589,23 @@ h {
         word-break: break-word;  
       }
     }
-  
+}
+
+.card .btn-area{
+  display: flex;
+  justify-content: space-between;
+  gap:1rem;
+  .btn{
+    flex:1;
+    padding:1.6rem 2rem;
+    text-align: center;
+    background-color: var(--color-bg-03);
+    cursor: pointer;
+    border-radius: 1rem;
+    &:nth-child(1), &:last-child{
+      flex:0 0 auto;
+    }
+  }
 }
 
 .contact-btns{
@@ -588,7 +693,7 @@ input, textarea{
     margin-top:1rem;
     border-radius: 0.6rem;
     text-align: center;
-    background-color:  #5599ff;
+    background-color:  var(--color-primary);
     color:#fff;
   }
   .length{

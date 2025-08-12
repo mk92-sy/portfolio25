@@ -81,9 +81,11 @@ export default function WorksPage() {
             className="card"
             key={index}
           >
-            <div className="thumnail-area">
-              <img src={item.thumbnail} alt="" />
-            </div>
+            {item.thumbnail !== '' && (
+              <div className="thumnail-area">
+                <img src={item.thumbnail} alt="" />
+              </div>
+            )}
             <div className="info-area">
               <h3 className="title">{item.title}</h3>
               <p className="description">{item.description}</p>
