@@ -58,7 +58,7 @@ p {
 .card{
   background-color: var(--color-bg-00);
   padding:2.8rem 2.2rem;
-  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   &:first-child{
     margin-top:0;
   }
@@ -107,10 +107,9 @@ h {
 }
 .main-container{
   z-index: 2;
-  width:calc(100% - 4rem);
+  width:calc(100%);
   max-width: 100rem;
   margin:0 auto;
-  padding-bottom: 6rem;
   .navigation-tabs{
     position: sticky;
     top:7rem;
@@ -118,6 +117,8 @@ h {
     z-index: 0;
     display: flex;
     width:100%;
+    padding:0 2rem;
+    margin-left:0rem;
     background-color: var(--color-bg-01);
     gap:0.4rem;
     z-index: 2;
@@ -139,6 +140,19 @@ h {
       width:20%;
       transition: transform 0.3s ease-in-out;
       border-radius: 1rem;
+      transition: all .3s ease-out;
+      &::after{
+        position: absolute;
+        left:0;
+        top:0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        content: '';
+        background-color: var(--color-bg-02);
+        z-index: -1;
+        border-radius: 1rem;
+      }
       button{
         z-index: 1;
         display: flex;
@@ -187,7 +201,7 @@ h {
       &.active{
        width:40%;
        border-radius: 1rem;
-       background-color:var(--color-primary);
+      background-color:var(--color-primary);
        color:#fff;
        flex:0 0 auto;
        .tab-label{
@@ -224,7 +238,7 @@ h {
   }
   .content-area{
     z-index: 1;
-    overflow-y:auto;
+    overflow:visible;
     width:100%;
   }
 }
@@ -470,7 +484,6 @@ h {
     padding:0;
     overflow: hidden;
     background-color: var(--color-bg-00);
-    
   }
   .thumnail-area{
     background-color: var(--color-bg-03);
