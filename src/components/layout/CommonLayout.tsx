@@ -1,13 +1,13 @@
-import { type ReactNode } from "react";
+import { type ReactNode } from 'react'
 
-import Header from "./Header";
-import Footer from "./Footer";
-import FloatingMenu from "../organisms/FloatingMenu";
-import ScrollTopButton from "../molecules/ScrollTopButton";
+import Header from './Header'
+import Footer from './Footer'
+import FloatingMenu from '../organisms/FloatingMenu'
+import ScrollTopButton from '../molecules/ScrollTopButton'
 
 // import { useStack } from "../../context/StackContext";
 interface CommonLayoutProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 const CommonLayout = ({ children }: CommonLayoutProps) => {
@@ -30,7 +30,7 @@ const CommonLayout = ({ children }: CommonLayoutProps) => {
       <Footer />
       <ScrollTopButton />
     </main>
-  );
-};
+  )
+}
 
-export default CommonLayout;
+export default CommonLayout

@@ -1,46 +1,46 @@
-.dialog{
-    &-backdrop{
-        position: fixed;
-        inset: 0;
-        background-color: rgba(0,0,0,0.5);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 1000;
+.dialog {
+  &-backdrop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5);
+    inset: 0;
+  }
+  &-content {
+    display: flex;
+    gap: 1.2rem;
+    flex-direction: column;
+    padding: 2rem;
+    width: calc(100% - 4rem);
+    max-width: 400px;
+    background: var(--color-bg-00);
+    border-radius: 1.6rem;
+  }
+  &-title {
+    font-size: 2rem;
+  }
+  &-desc {
+  }
+  &-btn-area {
+    display: flex;
+    gap: 1rem;
+    > button {
+      flex: 1;
+      padding: 1.5rem 0;
+      color: var(--color-bg-00);
+      text-align: center;
+      border-radius: 0.6rem;
+      &:only-child {
+        background-color: var(--color-primary);
+      }
     }
-    &-content{
-        display: flex;
-        flex-direction: column;
-        gap:1.2rem;
-        background:var(--color-bg-00);
-        padding: 2rem;
-        border-radius: 1.6rem;
-        max-width: 400px;
-        width: calc(100% - 4rem);
+    .cancel-btn {
+      background-color: var(--color-bg-03);
     }
-    &-title{
-        font-size: 2rem;
+    .confirm-btn {
+      background-color: var(--color-primary);
     }
-    &-desc{
-
-    }
-    &-btn-area{
-        display: flex;
-        gap:1rem;
-        > button{
-            flex:1;
-            padding:1.5rem 0;
-            text-align: center;
-            border-radius: 0.6rem;
-            &:only-child{
-                background-color: var(--color-primary);
-            }
-        }
-        .cancel-btn{
-            background-color: var(--color-bg-03);
-        }
-        .confirm-btn{
-            background-color: var(--color-primary);
-        }
-    }
+  }
 }

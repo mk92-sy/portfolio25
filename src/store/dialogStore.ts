@@ -1,20 +1,22 @@
-import { create } from 'zustand';
+import { create } from 'zustand'
 
-export type DialogType = 'alert' | 'confirm';
+export type DialogType = 'alert' | 'confirm'
 
 interface DialogState {
-  isOpen: boolean;
-  type: DialogType;
-  title: string;
-  message: string;
-  confirmText: string;
-  cancelText: string;
-  onConfirm?: () => void;
-  openDialog: (options: Partial<Omit<DialogState, 'isOpen' | 'openDialog' | 'closeDialog'>>) => void;
-  closeDialog: () => void;
+  isOpen: boolean
+  type: DialogType
+  title: string
+  message: string
+  confirmText: string
+  cancelText: string
+  onConfirm?: () => void
+  openDialog: (
+    options: Partial<Omit<DialogState, 'isOpen' | 'openDialog' | 'closeDialog'>>
+  ) => void
+  closeDialog: () => void
 }
 
-let lastFocusedElement: HTMLElement | null = null;
+let lastFocusedElement: HTMLElement | null = null
 
 export const useDialogStore = create<DialogState>((set) => ({
   isOpen: false,
@@ -26,22 +28,22 @@ export const useDialogStore = create<DialogState>((set) => ({
   onConfirm: undefined,
 
   openDialog: (options) => {
-    lastFocusedElement = document.activeElement as HTMLElement;
+    lastFocusedElement = document.activeElement as HTMLElement
     set({
-        isOpen: true,
-        type: options.type ?? 'alert',
-        title: options.title ?? '',
-        message: options.message ?? '',
-        confirmText: options.confirmText ?? '확인',
-        cancelText: options.cancelText ?? '취소',
-        onConfirm: options.onConfirm,
+      isOpen: true,
+      type: options.type ?? 'alert',
+      title: options.title ?? '',
+      message: options.message ?? '',
+      confirmText: options.confirmText ?? '확인',
+      cancelText: options.cancelText ?? '취소',
+      onConfirm: options.onConfirm,
     })
   },
 
   closeDialog: () => {
-    set({ isOpen: false });
-    setTimeout(()=>{
-        lastFocusedElement?.focus();
-    },0)
+    set({ isOpen: false })
+    setTimeout(() => {
+      lastFocusedElement?.focus()
+    }, 0)
   },
-}));
+}))

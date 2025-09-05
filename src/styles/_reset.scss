@@ -2,14 +2,13 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 /* 글꼴 렌더링 개선 */
 html {
-  /* scroll-behavior: smooth; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-size-adjust: 100%;
@@ -19,11 +18,11 @@ html {
 /* 화면 요소 기본값 */
 body {
   background-color: var(--background-color, #fff);
-  color: var(--text-color, #333);
   font-family: system-ui, sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1;
+  color: var(--text-color, #333);
 }
 
 /* 미디어 관련 */
@@ -63,9 +62,9 @@ select {
 /* 애니메이션 최소화 (접근성 고려) */
 @media (prefers-reduced-motion: reduce) {
   * {
-    transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 }

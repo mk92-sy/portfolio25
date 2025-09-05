@@ -26,14 +26,14 @@
 
   --color-white: #fff;
 
-  --color-primary:#B85C38;
-  --color-secondary:#7F8CAA;
-  --color-tertiary:#B8CFCE;
+  --color-primary: #b85c38;
+  --color-secondary: #7f8caa;
+  --color-tertiary: #b8cfce;
 
   --color-active: #5bd670;
 }
 .dark {
-  &:root{
+  &:root {
     --color-bg-00: #1e1e1e;
     --color-bg-01: #2a2523;
     --color-bg-02: #3a302d;
@@ -45,7 +45,6 @@
     --color-bg-08: #9a7b6f;
     --color-bg-09: #aa897b;
     --color-bg-10: #b99788;
-    --color-txt: #E8E3DF;
+    --color-txt: #e8e3df;
   }
 }
-

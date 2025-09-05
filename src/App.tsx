@@ -3,55 +3,55 @@ import {
   RouterProvider,
   type LoaderFunction,
   type ActionFunction,
-} from "react-router-dom";
-import CommonLayout from "./components/layout/CommonLayout";
-import { StackProvider } from "./context/StackContext";
-import { RefProvider } from "./context/RefContext";
-import { DarkModeProvider } from "./context/DarkModeContext";
-import { ScrollProvider } from "./context/ScrollContext";
-import { ActiveContentsProvider } from "./context/ActiveContents";
-import ComponentsWrapper from "./components/etc/ComponentsWrapper";
+} from 'react-router-dom'
+import CommonLayout from './components/layout/CommonLayout'
+import { StackProvider } from './context/StackContext'
+import { RefProvider } from './context/RefContext'
+import { DarkModeProvider } from './context/DarkModeContext'
+import { ScrollProvider } from './context/ScrollContext'
+import { ActiveContentsProvider } from './context/ActiveContents'
+import ComponentsWrapper from './components/etc/ComponentsWrapper'
 interface RouteCommon {
-  loader?: LoaderFunction;
-  action?: ActionFunction;
-  ErrorBoundary?: React.ComponentType<unknown>;
+  loader?: LoaderFunction
+  action?: ActionFunction
+  ErrorBoundary?: React.ComponentType<unknown>
 }
 
 interface IRoute extends RouteCommon {
-  path: string;
-  Element: React.ComponentType<unknown>;
+  path: string
+  Element: React.ComponentType<unknown>
 }
 
 interface Pages {
-  [key: string]: { default: React.ComponentType<unknown> } & RouteCommon;
+  [key: string]: { default: React.ComponentType<unknown> } & RouteCommon
 }
 
-const pages: Pages = import.meta.glob("./pages/**/*.tsx", { eager: true });
+const pages: Pages = import.meta.glob('./pages/**/*.tsx', { eager: true })
 
-const routes: IRoute[] = [];
+const routes: IRoute[] = []
 
 for (const path of Object.keys(pages)) {
-  const fileName = path.match(/\.\/pages\/(.*)\.tsx$/)?.[1];
+  const fileName = path.match(/\.\/pages\/(.*)\.tsx$/)?.[1]
   if (!fileName) {
-    continue;
+    continue
   }
 
   // 동적 라우팅을 위한 변환
-  let normalizedPathName = fileName.replace(/\/page$/, "").toLowerCase();
+  let normalizedPathName = fileName.replace(/\/page$/, '').toLowerCase()
 
-  if (normalizedPathName.includes("$") || normalizedPathName.includes("[")) {
+  if (normalizedPathName.includes('$') || normalizedPathName.includes('[')) {
     normalizedPathName = normalizedPathName
-      .replace("$", ":")
-      .replace(/\[(.*?)\]/g, ":$1");
+      .replace('$', ':')
+      .replace(/\[(.*?)\]/g, ':$1')
   }
 
   routes.push({
-    path: fileName === "page" ? "/" : `/${normalizedPathName}`,
+    path: fileName === 'page' ? '/' : `/${normalizedPathName}`,
     Element: pages[path].default,
     loader: pages[path]?.loader as LoaderFunction | undefined,
     action: pages[path]?.action as ActionFunction | undefined,
     ErrorBoundary: pages[path]?.ErrorBoundary,
-  });
+  })
 }
 
 const router = createBrowserRouter(
@@ -66,7 +66,7 @@ const router = createBrowserRouter(
     ),
     ...(ErrorBoundary && { errorElement: <ErrorBoundary /> }),
   }))
-);
+)
 
 const App = () => {
   return (
@@ -82,7 +82,7 @@ const App = () => {
         </RefProvider>
       </ScrollProvider>
     </DarkModeProvider>
-  );
-};
+  )
+}
 
-export default App;
+export default App

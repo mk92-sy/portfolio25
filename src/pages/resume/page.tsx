@@ -1,4 +1,4 @@
-import Badge from "../../components/atoms/Badge";
+import Badge from '../../components/atoms/Badge'
 
 export default function ResumePage() {
   return (
@@ -28,7 +28,9 @@ export default function ResumePage() {
           <dl className="item">
             <dt>애니시큐어 주식회사</dt>
             <dd>
-              <p>서비스 관련 디자인, 웹퍼블리싱 및 운영 업무 (CS포함 / 정규직)</p>
+              <p>
+                서비스 관련 디자인, 웹퍼블리싱 및 운영 업무 (CS포함 / 정규직)
+              </p>
               <p>2019.01 ~ 2021.02 (2년 2개월)</p>
             </dd>
           </dl>
@@ -121,5 +123,5 @@ export default function ResumePage() {
         </div>
       </section>
     </div>
-  );
+  )
 }

@@ -1,15 +1,15 @@
-import type * as TYPES from "../../types";
-import css from "./Badge.module.scss";
+import type * as TYPES from '../../types'
+import css from './Badge.module.scss'
 
 const Badge = ({
-  bgColor = "#757eff1",
-  color = "#fff",
+  bgColor = '#757eff1',
+  color = '#fff',
   children,
   className,
   style,
   ...rest
 }: TYPES.Badge) => {
-  const classList = `${css.badge}${className ? ` ${className}` : ""}`;
+  const classList = `${css.badge}${className ? ` ${className}` : ''}`
   return (
     <span
       className={classList}
@@ -18,7 +18,7 @@ const Badge = ({
     >
       {children}
     </span>
-  );
-};
+  )
+}
 
-export default Badge;
+export default Badge

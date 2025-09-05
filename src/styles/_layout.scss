@@ -1,4 +1,4 @@
-.inline-block{
+.inline-block {
   display: inline-block;
 }
 
@@ -14,18 +14,17 @@
   }
 }
 
-.mt{
-  &-1{
-    margin-top:1rem;
+.mt {
+  &-1 {
+    margin-top: 1rem;
   }
-  &-2{
-    margin-top:2rem;
+  &-2 {
+    margin-top: 2rem;
   }
-  &-3{
-    margin-top:3rem;
+  &-3 {
+    margin-top: 3rem;
   }
-  &-4{
-    margin-top:4rem;
-  
+  &-4 {
+    margin-top: 4rem;
   }
 }

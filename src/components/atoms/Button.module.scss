@@ -16,90 +16,91 @@
   width: 100%;
 }
 
-.sun, .moon{
+.sun,
+.moon {
   overflow: hidden;
   position: relative;
-  width:3rem;
-  height:3rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
-  &::after{
+  &::after {
     display: block;
     position: absolute;
-    bottom:0;
-    left:0;
-    width:100%;
-    height:100%;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     animation: riseup forwards ease-in-out 0.7s;
     content: '';
   }
 }
-.sun{
+.sun {
   background-color: #61c0ff;
   animation: moonchange forwards ease-in-out 0.7s;
-  &::after{
+  &::after {
     background: url(../../assets/icons/icon_s128_sun.svg) no-repeat center;
     background-size: 2rem auto;
   }
 }
-.moon{
+.moon {
   background-color: #111;
   animation: sunchange forwards ease-in-out 0.7s;
-  &::after{
+  &::after {
     background: url(../../assets/icons/icon_s128_moon.svg) no-repeat center;
     background-size: 2rem auto;
   }
 }
-.share{
+.share {
   position: relative;
-  width:3rem;
-  height:3rem;
+  width: 3rem;
+  height: 3rem;
   background-color: var(--color-bg-04);
-  cursor:pointer;
+  cursor: pointer;
   border-radius: 50%;
-  &::after{
-    content: '';
+  &::after {
     position: absolute;
-    left:0;
-    top:0;
-    width:100%;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
+    background-color: var(--color-bg-09);
+    content: '';
     mask-image: url(../../assets/icons/icon_s64_share.svg);
     mask-repeat: no-repeat;
     mask-position: left 4px top 5px;
     mask-size: 2rem auto;
-    background-color: var(--color-bg-09);
   }
 }
 
-.top{
-  box-shadow: 0 .3rem 1.2rem 0 rgba(0, 45, 125, .161);
+.top {
+  box-shadow: 0 0.3rem 1.2rem 0 rgba(0, 45, 125, 0.161);
   overflow: hidden;
   position: fixed;
-  bottom:4.6rem;
-  left:2rem;
-  width:4rem;
-  height:4rem;
+  bottom: 4.6rem;
+  left: 2rem;
+  width: 4rem;
+  height: 4rem;
   background-color: var(--color-bg-10);
-  cursor:pointer;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
   border-radius: 50%;
   transform: scale(0);
   opacity: 0;
-  transition: all .3s ease-in-out;
   will-change: transform;
-  &::after{
-    content: '';
-    width:4rem;
-    height: 4rem;
+  &::after {
     position: absolute;
-    left:0;
-    bottom:0;
+    bottom: 0;
+    left: 0;
+    width: 4rem;
+    height: 4rem;
     background-color: var(--color-bg-01);
+    content: '';
     mask-image: url(../../assets/icons/icon_s64_top.svg);
     mask-repeat: no-repeat;
     mask-position: center;
     mask-size: 2.4rem auto;
   }
-  &:global(.active){
+  &:global(.active) {
     opacity: 1;
     transform: scale(1);
   }

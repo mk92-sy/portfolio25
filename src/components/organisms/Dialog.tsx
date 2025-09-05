@@ -1,10 +1,10 @@
-import { useEffect, useRef } from 'react';
-import { useDialogStore } from '../../store/dialogStore';
-import css from './Dialog.module.scss';
-import { useFocusableElements } from '../../hooks/useFocusableElements';
+import { useEffect, useRef } from 'react'
+import { useDialogStore } from '../../store/dialogStore'
+import css from './Dialog.module.scss'
+import { useFocusableElements } from '../../hooks/useFocusableElements'
 
 const Dialog = () => {
-const { getFocusableElements } = useFocusableElements();
+  const { getFocusableElements } = useFocusableElements()
   const {
     isOpen,
     type,
@@ -14,61 +14,61 @@ const { getFocusableElements } = useFocusableElements();
     cancelText,
     onConfirm,
     closeDialog,
-  } = useDialogStore();
+  } = useDialogStore()
 
-  const dialogRef = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const appRoot = document.getElementById('Contents'); // 외부 콘텐츠 영역
+    const appRoot = document.getElementById('Contents') // 외부 콘텐츠 영역
 
     if (isOpen) {
-        document.documentElement.style.overflow = 'hidden';
-      dialogRef.current?.focus();
+      document.documentElement.style.overflow = 'hidden'
+      dialogRef.current?.focus()
 
       // 외부 콘텐츠 inert 처리
       if (appRoot) {
-        appRoot.setAttribute('inert', 'true');
+        appRoot.setAttribute('inert', 'true')
       }
 
       const handleKeyDown = (e: KeyboardEvent) => {
         if (e.key === 'Escape') {
-          closeDialog();
+          closeDialog()
         }
 
         if (e.key === 'Tab') {
-            const focusableEls = getFocusableElements(dialogRef.current);
-            if (focusableEls.length === 0) return;
-        
-            const firstEl = focusableEls[0];
-            const lastEl = focusableEls[focusableEls.length - 1];
-        
-            if (e.shiftKey) {
-              if (document.activeElement === firstEl) {
-                e.preventDefault();
-                lastEl.focus();
-              }
-            } else {
-              if (document.activeElement === lastEl) {
-                e.preventDefault();
-                firstEl.focus();
-              }
+          const focusableEls = getFocusableElements(dialogRef.current)
+          if (focusableEls.length === 0) return
+
+          const firstEl = focusableEls[0]
+          const lastEl = focusableEls[focusableEls.length - 1]
+
+          if (e.shiftKey) {
+            if (document.activeElement === firstEl) {
+              e.preventDefault()
+              lastEl.focus()
+            }
+          } else {
+            if (document.activeElement === lastEl) {
+              e.preventDefault()
+              firstEl.focus()
             }
           }
-      };
+        }
+      }
 
-      document.addEventListener('keydown', handleKeyDown);
+      document.addEventListener('keydown', handleKeyDown)
       return () => {
         // inert 해제F
         if (appRoot) {
-            appRoot.removeAttribute('inert');
+          appRoot.removeAttribute('inert')
         }
-        document.documentElement.style.overflow = '';
-        document.removeEventListener('keydown', handleKeyDown);
-      };
+        document.documentElement.style.overflow = ''
+        document.removeEventListener('keydown', handleKeyDown)
+      }
     }
-  }, [isOpen, closeDialog]);
+  }, [isOpen, closeDialog])
 
-  if (!isOpen) return null;
+  if (!isOpen) return null
 
   return (
     <div
@@ -76,21 +76,18 @@ const { getFocusableElements } = useFocusableElements();
       aria-modal="true"
       aria-labelledby="dialog-title"
       aria-describedby="dialog-desc"
-      className={css["dialog-backdrop"]}
-      tabIndex={-1}
+      className={css['dialog-backdrop']}
       ref={dialogRef}
     >
-      <div
-        className={css["dialog-content"]}
-      >
-        <h2 className={css["dialog-title"]}>{title}</h2>
-        <p className={css["dialog-desc"]}>{message}</p>
+      <div tabIndex={0} className={css['dialog-content']}>
+        <h2 className={css['dialog-title']}>{title}</h2>
+        <p className={css['dialog-desc']}>{message}</p>
         <div className={css['dialog-btn-area']}>
           {type === 'confirm' && (
-            <button 
-                className={css['cancel-btn']}
-                autoFocus 
-                onClick={closeDialog}
+            <button
+              className={css['cancel-btn']}
+              autoFocus
+              onClick={closeDialog}
             >
               {cancelText}
             </button>
@@ -98,8 +95,8 @@ const { getFocusableElements } = useFocusableElements();
           <button
             className={css['confirm-btn']}
             onClick={() => {
-              onConfirm?.();
-              closeDialog();
+              onConfirm?.()
+              closeDialog()
             }}
           >
             {confirmText}
@@ -107,7 +104,7 @@ const { getFocusableElements } = useFocusableElements();
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Dialog;
+export default Dialog
