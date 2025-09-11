@@ -68,15 +68,13 @@ const Dialog = () => {
     }
   }, [isOpen, closeDialog])
 
-  if (!isOpen) return null
-
   return (
     <div
       role="dialog"
       aria-modal="true"
       aria-labelledby="dialog-title"
       aria-describedby="dialog-desc"
-      className={css['dialog-backdrop']}
+      className={`${css['dialog-backdrop']} ${isOpen ? css['open'] : ''}`}
       ref={dialogRef}
     >
       <div tabIndex={0} className={css['dialog-content']}>

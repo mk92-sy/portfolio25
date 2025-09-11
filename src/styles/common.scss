@@ -43,7 +43,7 @@ button {
 p {
   font-weight: 300;
   line-height: 1.5;
-  color: var(--color-bg-09);
+  color: var(--color-bg-10);
 }
 
 .contents {
@@ -53,7 +53,8 @@ p {
 }
 
 .inner {
-  margin: 3rem auto 6rem;
+  margin: 1.6rem auto 10rem;
+  padding: 0 2rem;
   max-width: 100rem;
 }
 
@@ -61,9 +62,9 @@ p {
   margin: 0 auto;
   padding: 2.8rem 2.2rem;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  max-width: calc(100% - 4rem);
   background-color: var(--color-bg-00);
   border-radius: 3rem;
+  overflow: hidden;
   &:first-child {
     margin-top: 0;
   }
@@ -115,37 +116,29 @@ h {
   width: calc(100%);
   max-width: 100rem;
   .navigation-tabs-wrapper {
-    position: sticky;
-    top: 7rem;
+    position: fixed;
     left: 0;
+    bottom: 0;
+    width: calc(100% - 4rem);
+    padding: 2rem 0;
+    margin: 0 2rem;
     z-index: 2;
+    // background-color: var(--color-bg-01);
+    // box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.15);
   }
   .navigation-tabs {
     display: flex;
     margin: 0 auto;
     position: relative;
     width: 100%;
-    max-width: calc(100% - 2rem);
-    background-color: var(--color-bg-01);
-    &::after {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: -1;
-      width: 40%;
-      height: 100%;
-      background-color: var(--color-primary);
-      transition: transform 0.2s ease;
-      content: '';
-      border-radius: 1rem;
-      will-change: transform;
-    }
+    max-width: 960px;
+
     .tab-item {
       position: relative;
-      width: 20%;
+      width: 25%;
       transition: transform 0.3s ease-in-out;
       transition: all 0.3s ease-out;
-      border-radius: 1rem;
+
       &::after {
         display: block;
         position: absolute;
@@ -154,9 +147,8 @@ h {
         z-index: -1;
         width: 100%;
         height: 100%;
-        background-color: var(--color-bg-02);
         content: '';
-        border-radius: 1rem;
+        border-radius: 0;
       }
       button {
         display: flex;
@@ -169,13 +161,14 @@ h {
         font-size: 1.3rem;
         text-align: center;
         letter-spacing: -0.1px;
+        color: var(--color-txt);
         @include tablet {
           height: 5rem;
         }
         .tab-icon {
           width: 2.4rem;
           height: 2.4rem;
-          background-color: var(--color-bg-10);
+          background-color: var(--color-txt);
           mask-repeat: no-repeat;
           mask-position: center;
           mask-size: 2.4rem auto;
@@ -195,6 +188,7 @@ h {
         .tab-label {
           display: none;
           font-size: 1.6rem;
+          white-space: nowrap;
         }
         @include tablet {
           .tab-label {
@@ -204,37 +198,19 @@ h {
         }
       }
       &.active {
-        flex: 0 0 auto;
-        width: 40%;
-        background-color: var(--color-primary);
-        color: #fff;
-        border-radius: 1rem;
+        @media all and (max-width: 480px) {
+          width: 44%;
+        }
+        width: 25%;
+        // background-color: var(--color-primary);
+        // color: #fff;
+        border-radius: 99rem;
         .tab-label {
           display: block;
         }
-        .tab-icon {
-          background-color: #fff;
-        }
-      }
-    }
-    &:has(.tab-item:nth-child(1).active) {
-      &::after {
-        transform: translateX(0);
-      }
-    }
-    &:has(.tab-item:nth-child(2).active) {
-      &::after {
-        transform: translateX(50%);
-      }
-    }
-    &:has(.tab-item:nth-child(3).active) {
-      &::after {
-        transform: translateX(100%);
-      }
-    }
-    &:has(.tab-item:nth-child(4).active) {
-      &::after {
-        transform: translateX(150%);
+        // .tab-icon {
+        //   background-color: #fff;
+        // }
       }
     }
     & + .content-area {
@@ -282,8 +258,8 @@ h {
 }
 
 .floating-menu {
-  position: fixed;
-  top: 1.3rem;
+  position: absolute;
+  top: 1.9rem;
   right: 2rem;
   z-index: 99;
   height: 2.4rem;
@@ -323,26 +299,8 @@ h {
   .menu-dropdown {
     display: flex;
     gap: 0.8rem;
-    flex-direction: column;
-    padding: 1rem;
-    border: 1px solid var(--color-bg-06);
-    box-shadow: 0 0.3rem 1.2rem 0 rgba(0, 45, 125, 0.161);
-    position: absolute;
-    top: 2rem;
-    right: 0;
     z-index: 1;
-    background-color: var(--color-bg-02);
     transition: all 0.3s ease-out;
-    pointer-events: none;
-    border-radius: 3rem;
-    transform: translateY(-10px);
-    opacity: 0;
-    will-change: transform;
-    &.active {
-      pointer-events: inherit;
-      transform: translateY(30px);
-      opacity: 1;
-    }
   }
 }
 
@@ -351,6 +309,7 @@ h {
   padding-bottom: 1.6rem;
   border-bottom: 1px dotted var(--color-bg-03);
   font-size: 2rem;
+  color: var(--color-txt);
 }
 .sub-txt {
   display: inline-block;
@@ -483,17 +442,27 @@ h {
   }
 }
 .list-box {
-  margin-top: 2rem;
+  margin: 2rem 0 0;
   .card {
     padding: 0;
     overflow: hidden;
     background-color: var(--color-bg-00);
   }
   .thumnail-area {
+    position: relative;
     overflow: hidden;
     width: 100%;
     background-color: var(--color-bg-03);
     border-radius: 1.8rem;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--color-bg-05);
+    }
     img {
       min-height: 100%;
       object-fit: cover;
@@ -541,7 +510,7 @@ h {
       justify-content: flex-start;
       flex-direction: column;
       width: 100%;
-      height: auto;
+      height: 23rem;
       box-sizing: border-box;
       .thumnail-area {
         display: flex;
@@ -575,7 +544,7 @@ h {
     // 데스크탑 뷰 (3개씩)
     @include desktop {
       .card {
-        width: calc((100% - 4rem) / 3);
+        width: calc((100% - 4rem) / 2);
         .thumnail-area {
           height: 12rem;
         }
@@ -607,6 +576,11 @@ h {
       text-overflow: ellipsis; /* 말줄임표 (…) 표시 */
     }
   }
+}
+
+.img-fluid {
+  border: 2px solid var(--color-bg-05);
+  border-radius: 2rem;
 }
 
 .card .btn-area {
@@ -713,7 +687,7 @@ textarea {
     margin-top: 1rem;
     min-height: 5rem;
     background-color: var(--color-primary);
-    color: #fff;
+    color: var(--color-bg-00);
     text-align: center;
     border-radius: 0.6rem;
   }
@@ -778,4 +752,51 @@ textarea {
 
 [darkmode='true'] .main-container .navigation-tabs .tab-item.active .tab-icon {
   background-color: #fff;
+}
+
+/* LIQUID GLASS STYLES */
+
+.liquidGlass-wrapper {
+  position: absolute;
+  display: flex;
+  font-weight: 600;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  color: black;
+  cursor: pointer;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  border-radius: 99rem;
+}
+
+.liquidGlass-effect {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+
+  backdrop-filter: blur(3px);
+  filter: url(#glass-distortion);
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 99rem;
+}
+
+.liquidGlass-tint {
+  z-index: 1;
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 99rem;
+}
+
+.liquidGlass-shine {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+  box-shadow: inset 2px 2px 1px 0 rgba(255, 255, 255, 0.5),
+    inset -1px -1px 1px 1px rgba(255, 255, 255, 0.5);
+  border-radius: 99rem;
 }

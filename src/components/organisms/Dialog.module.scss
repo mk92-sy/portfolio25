@@ -1,12 +1,22 @@
 .dialog {
   &-backdrop {
+    visibility: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     position: fixed;
     z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0);
     inset: 0;
+    transition: all 0.3s ease;
+    &.open {
+      visibility: visible;
+      background-color: rgba(0, 0, 0, 0.5);
+      .dialog-content {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
   }
   &-content {
     display: flex;
@@ -17,6 +27,9 @@
     max-width: 400px;
     background: var(--color-bg-00);
     border-radius: 1.6rem;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.3s ease;
   }
   &-title {
     font-size: 2rem;

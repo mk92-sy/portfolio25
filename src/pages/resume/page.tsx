@@ -83,6 +83,9 @@ export default function ResumePage() {
             <Badge bgColor="#1881e2">styled-component</Badge>
             <Badge bgColor="#1881e2">MUI</Badge>
             <Badge bgColor="#1881e2">Bootstrap</Badge>
+            <Badge bgColor="#1881e2">motion</Badge>
+            <Badge bgColor="#1881e2">swiper</Badge>
+            <Badge bgColor="#1881e2">gsap</Badge>
           </div>
           <h4>Framework</h4>
           <div className="badge-box">
@@ -100,6 +103,7 @@ export default function ResumePage() {
             <Badge bgColor="#038f4e">git</Badge>
             <Badge bgColor="#038f4e">github</Badge>
             <Badge bgColor="#038f4e">gitlab</Badge>
+            <Badge bgColor="#038f4e">Vite</Badge>
           </div>
           <h4>Accessiblity Tools</h4>
           <div className="badge-box">

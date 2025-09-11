@@ -4,10 +4,12 @@ import ResumePage from './resume/page'
 import AboutPage from './about/page'
 import WorksPage from './works/page'
 import { useActiveContent } from '../context/ActiveContents'
+import { useMediaQuery } from 'react-responsive'
 
 export default function MainPage() {
-  const tabListRef = useRef<HTMLUListElement | null>(null)
+  const tabListRef = useRef<HTMLDivElement | null>(null)
   const { activeContent, setActiveContent } = useActiveContent()
+  const isMobile = useMediaQuery({ maxWidth: 480 })
 
   const TabClick = useCallback((menu: number) => {
     setActiveContent(menu)
@@ -20,10 +22,23 @@ export default function MainPage() {
   return (
     <>
       <div className="main-container">
-        <div className="navigation-tabs-wrapper">
-          <ul className="navigation-tabs" role="tablist" ref={tabListRef}>
-            <li
-              className={`tab-item tab-resume${
+        <div className="navigation-tabs-wrapper ">
+          <div className="navigation-tabs " role="tablist" ref={tabListRef}>
+            <div
+              className="liquidGlass-wrapper"
+              style={{
+                width: `${isMobile ? '32vw' : '25%'}`,
+                transform: `translateX(${
+                  activeContent * (isMobile ? 60 : 100)
+                }%)`,
+              }}
+            >
+              <div className="liquidGlass-effect"></div>
+              <div className="liquidGlass-tint"></div>
+              <div className="liquidGlass-shine"></div>
+            </div>
+            <div
+              className={`tab-item tab-resume ${
                 activeContent === 0 ? ' active' : ''
               }`}
             >
@@ -39,8 +54,8 @@ export default function MainPage() {
                 <span className="tab-icon resume" />
                 <span className="tab-label">Resume</span>
               </button>
-            </li>
-            <li
+            </div>
+            <div
               className={`tab-item tab-about${
                 activeContent === 1 ? ' active' : ''
               }`}
@@ -57,8 +72,8 @@ export default function MainPage() {
                 <span className="tab-icon about" />
                 <span className="tab-label">About Me</span>
               </button>
-            </li>
-            <li
+            </div>
+            <div
               className={`tab-item tab-works${
                 activeContent === 2 ? ' active' : ''
               }`}
@@ -75,8 +90,8 @@ export default function MainPage() {
                 <span className="tab-icon works" />
                 <span className="tab-label">Works</span>
               </button>
-            </li>
-            <li
+            </div>
+            <div
               className={`tab-item tab-contact${
                 activeContent === 3 ? ' active' : ''
               }`}
@@ -93,8 +108,8 @@ export default function MainPage() {
                 <span className="tab-icon contact" />
                 <span className="tab-label">Contact</span>
               </button>
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
         <div className="content-area">
           {activeContent === 0 ? (
