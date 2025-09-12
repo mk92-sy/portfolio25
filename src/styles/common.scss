@@ -32,7 +32,8 @@ body {
 }
 
 a,
-button {
+button,
+[tabIndex='0'] {
   cursor: pointer;
   &:focus-visible {
     outline: 2px solid var(--color-bg-10);
@@ -50,6 +51,83 @@ p {
   width: 100%;
   height: 100%;
   min-height: 100svh;
+  &::after {
+    content: '';
+    position: absolute;
+    top: -2rem;
+    left: 0;
+    width: 100%;
+    height: 13.5rem;
+    z-index: -1;
+    transition: all 1s ease-in-out;
+  }
+}
+
+.morning .contents::after {
+  background: linear-gradient(
+    to bottom,
+    #6a75d8 40%,
+    #95f3fa 80%,
+    transparent 100%
+  );
+}
+.afternoon .contents::after {
+  background: linear-gradient(
+    to bottom,
+    #e7f791 40%,
+    #95f3fa 80%,
+    transparent 100%
+  );
+}
+.evening .contents::after {
+  background: linear-gradient(
+    to bottom,
+    #ff8162 40%,
+    #9d9ff7 80%,
+    transparent 100%
+  );
+}
+.night .contents::after {
+  background: linear-gradient(
+    to bottom,
+    #422c50 40%,
+    #476c91 80%,
+    transparent 100%
+  );
+}
+
+.dark .morning .contents::after {
+  background: linear-gradient(
+    to bottom,
+    #cabf7d 40%,
+    #aaccca 80%,
+    transparent 100%
+  );
+}
+.dark .afternoon .contents::after {
+  background: linear-gradient(
+    to bottom,
+    #557997 40%,
+    #8faec4 80%,
+    transparent 100%
+  );
+  // background: linear-gradient(to bottom, #ba95c0, #d1bd9f, transparent 100%);
+}
+.dark .evening .contents::after {
+  background: linear-gradient(
+    to bottom,
+    #ce93d8 40%,
+    #ffe0b2 80%,
+    transparent 100%
+  );
+}
+.dark .night .contents::after {
+  background: linear-gradient(
+    to bottom,
+    #455a64 40%,
+    #263238 80%,
+    transparent 100%
+  );
 }
 
 .inner {
@@ -62,9 +140,9 @@ p {
   margin: 0 auto;
   padding: 2.8rem 2.2rem;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
   background-color: var(--color-bg-00);
   border-radius: 3rem;
-  overflow: hidden;
   &:first-child {
     margin-top: 0;
   }
@@ -111,23 +189,25 @@ h {
   }
 }
 .main-container {
+  position: relative;
   margin: 0 auto;
   z-index: 2;
   width: calc(100%);
   max-width: 100rem;
   .navigation-tabs-wrapper {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: calc(100% - 4rem);
-    padding: 2rem 0;
     margin: 0 2rem;
+    padding: 2rem 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     z-index: 2;
+    width: calc(100% - 4rem);
     // background-color: var(--color-bg-01);
     // box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.15);
   }
   .navigation-tabs {
     display: flex;
+    gap: 0.5rem;
     margin: 0 auto;
     position: relative;
     width: 100%;
@@ -159,9 +239,55 @@ h {
         width: 100%;
         height: 4.4rem;
         font-size: 1.3rem;
+        color: var(--color-txt);
         text-align: center;
         letter-spacing: -0.1px;
-        color: var(--color-txt);
+        transition: all 0.2s ease;
+        &:focus-visible {
+          outline: 2px solid var(--color-bg-10);
+        }
+        &:active {
+          transform: scale(0.94);
+        }
+        &.glass-card {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0;
+          padding: 0;
+          box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.2);
+          position: relative;
+          width: 100%;
+          height: 50px;
+          background: none;
+          text-decoration: none;
+          cursor: pointer;
+          border-radius: 20px;
+          isolation: isolate;
+
+          &::before {
+            box-shadow: inset 0 0 4px -2px #000000;
+            position: absolute;
+            z-index: 0;
+            background-color: rgba(255, 255, 255, 0.2);
+            content: '';
+            inset: 0;
+            border-radius: 20px;
+          }
+
+          &::after {
+            position: absolute;
+            z-index: -1;
+            content: '';
+            inset: 0;
+            border-radius: 20px;
+            backdrop-filter: blur(1.5px);
+            -webkit-backdrop-filter: blur(1.5px);
+            filter: url(#glass-distortion);
+            -webkit-filter: url(#glass-distortion);
+          }
+        }
+
         @include tablet {
           height: 5rem;
         }
@@ -198,19 +324,19 @@ h {
         }
       }
       &.active {
+        width: 25%;
+        border-radius: 99rem;
         @media all and (max-width: 480px) {
           width: 44%;
         }
-        width: 25%;
-        // background-color: var(--color-primary);
-        // color: #fff;
-        border-radius: 99rem;
+        .tab-icon {
+          background-color: var(--color-active);
+        }
         .tab-label {
+          color: var(--color-active);
+          font-weight: 700;
           display: block;
         }
-        // .tab-icon {
-        //   background-color: #fff;
-        // }
       }
     }
     & + .content-area {
@@ -449,19 +575,19 @@ h {
     background-color: var(--color-bg-00);
   }
   .thumnail-area {
-    position: relative;
     overflow: hidden;
+    position: relative;
     width: 100%;
     background-color: var(--color-bg-03);
     border-radius: 1.8rem;
     &::after {
-      content: '';
       position: absolute;
-      left: 0;
       bottom: 0;
+      left: 0;
       width: 100%;
       height: 2px;
       background-color: var(--color-bg-05);
+      content: '';
     }
     img {
       min-height: 100%;
@@ -757,46 +883,46 @@ textarea {
 /* LIQUID GLASS STYLES */
 
 .liquidGlass-wrapper {
-  position: absolute;
   display: flex;
-  font-weight: 600;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  position: absolute;
   width: 100%;
   height: 100%;
+  font-weight: 600;
   color: black;
-  cursor: pointer;
-  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
   border-radius: 99rem;
 }
 
 .liquidGlass-effect {
+  overflow: hidden;
   position: absolute;
   z-index: 0;
   inset: 0;
 
   backdrop-filter: blur(3px);
   filter: url(#glass-distortion);
-  overflow: hidden;
   isolation: isolate;
   border-radius: 99rem;
 }
 
 .liquidGlass-tint {
-  z-index: 1;
   position: absolute;
-  inset: 0;
+  z-index: 1;
   background: rgba(255, 255, 255, 0.25);
+  inset: 0;
   border-radius: 99rem;
 }
 
 .liquidGlass-shine {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  overflow: hidden;
-  pointer-events: none;
   box-shadow: inset 2px 2px 1px 0 rgba(255, 255, 255, 0.5),
     inset -1px -1px 1px 1px rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  inset: 0;
   border-radius: 99rem;
 }

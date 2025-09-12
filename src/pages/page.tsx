@@ -4,18 +4,18 @@ import ResumePage from './resume/page'
 import AboutPage from './about/page'
 import WorksPage from './works/page'
 import { useActiveContent } from '../context/ActiveContents'
-import { useMediaQuery } from 'react-responsive'
+// import { useMediaQuery } from 'react-responsive'
 
 export default function MainPage() {
   const tabListRef = useRef<HTMLDivElement | null>(null)
   const { activeContent, setActiveContent } = useActiveContent()
-  const isMobile = useMediaQuery({ maxWidth: 480 })
+  // const isMobile = useMediaQuery({ maxWidth: 480 })
 
   const TabClick = useCallback((menu: number) => {
     setActiveContent(menu)
     window.scrollTo({
       top: 0,
-      behavior: 'auto',
+      behavior: 'smooth',
     })
   }, [])
 
@@ -25,25 +25,13 @@ export default function MainPage() {
         <div className="navigation-tabs-wrapper ">
           <div className="navigation-tabs " role="tablist" ref={tabListRef}>
             <div
-              className="liquidGlass-wrapper"
-              style={{
-                width: `${isMobile ? '32vw' : '25%'}`,
-                transform: `translateX(${
-                  activeContent * (isMobile ? 60 : 100)
-                }%)`,
-              }}
-            >
-              <div className="liquidGlass-effect"></div>
-              <div className="liquidGlass-tint"></div>
-              <div className="liquidGlass-shine"></div>
-            </div>
-            <div
               className={`tab-item tab-resume ${
                 activeContent === 0 ? ' active' : ''
               }`}
             >
               <button
                 role="tab"
+                className="glass-card"
                 aria-label={
                   activeContent === 0 ? 'Resume 메뉴 활성화' : undefined
                 }
@@ -62,6 +50,7 @@ export default function MainPage() {
             >
               <button
                 role="tab"
+                className="glass-card"
                 aria-label={
                   activeContent === 1 ? 'About 메뉴 활성화' : undefined
                 }
@@ -80,6 +69,7 @@ export default function MainPage() {
             >
               <button
                 role="tab"
+                className="glass-card"
                 aria-label={
                   activeContent === 2 ? 'Works 메뉴 활성화' : undefined
                 }
@@ -98,6 +88,7 @@ export default function MainPage() {
             >
               <button
                 role="tab"
+                className="glass-card"
                 aria-label={
                   activeContent === 3 ? 'Contact 메뉴 활성화' : undefined
                 }

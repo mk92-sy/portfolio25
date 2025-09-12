@@ -1,8 +1,7 @@
-import { type ReactNode } from 'react'
+import { useEffect, useRef, type ReactNode } from 'react'
 
 import Header from './Header'
 import Footer from './Footer'
-import FloatingMenu from '../organisms/FloatingMenu'
 import ScrollTopButton from '../molecules/ScrollTopButton'
 
 // import { useStack } from "../../context/StackContext";
@@ -22,6 +21,37 @@ const CommonLayout = ({ children }: CommonLayoutProps) => {
   //     }
   //   }
   // }, [stacks]);
+
+  const getTimeClass = (hour: number): string => {
+    if (hour >= 6 && hour < 12) return 'morning'
+    if (hour >= 12 && hour < 18) return 'afternoon'
+    if (hour >= 18 && hour < 21) return 'evening'
+    return 'night'
+  }
+
+  const lastClassRef = useRef<string>(getTimeClass(new Date().getHours()))
+
+  const updateBodyClass = () => {
+    const now = new Date()
+    const currentClass = getTimeClass(now.getHours())
+
+    console.log('Current Time Class:', currentClass) // 디버그용 로그
+
+    document.body.className = '' // 기존 클래스 제거
+    document.body.classList.add(currentClass)
+    lastClassRef.current = currentClass
+  }
+
+  useEffect(() => {
+    updateBodyClass() // 초기 적용
+
+    const intervalId = setInterval(() => {
+      updateBodyClass()
+    }, 10000) // 10초마다 체크 (분 단위 변경 감지용)
+
+    return () => clearInterval(intervalId)
+  }, [])
+
   return (
     <>
       <main className="contents" id="Contents">
@@ -30,53 +60,32 @@ const CommonLayout = ({ children }: CommonLayoutProps) => {
         <Footer />
         <ScrollTopButton />
       </main>
-      <svg style={{ display: 'none' }}>
-        <filter
-          id="glass-distortion"
-          x="0%"
-          y="0%"
-          width="100%"
-          height="100%"
-          filterUnits="objectBoundingBox"
-        >
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.01 0.01"
-            numOctaves="1"
-            seed="5"
-            result="turbulence"
-          />
-          <feComponentTransfer in="turbulence" result="mapped">
-            <feFuncA type="gamma" amplitude="0" exponent="1" offset="0.5" />
-          </feComponentTransfer>
-          <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap" />
-          <feSpecularLighting
-            in="softMap"
-            surfaceScale="5"
-            specularConstant="1"
-            specularExponent="100"
-            lightingColor="white"
-            result="specLight"
+      <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}>
+        <defs>
+          <filter
+            id="glass-distortion"
+            x="0%"
+            y="0%"
+            width="100%"
+            height="100%"
           >
-            <fePointLight x="-200" y="-200" z="300" />
-          </feSpecularLighting>
-          <feComposite
-            in="specLight"
-            operator="arithmetic"
-            k1="0"
-            k2="1"
-            k3="1"
-            k4="0"
-            result="litImage"
-          />
-          <feDisplacementMap
-            in="SourceGraphic"
-            in2="softMap"
-            scale="150"
-            xChannelSelector="R"
-            yChannelSelector="G"
-          />
-        </filter>
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.008 0.008"
+              numOctaves="2"
+              seed="92"
+              result="noise"
+            />
+            <feGaussianBlur in="noise" stdDeviation="2" result="blurred" />
+            <feDisplacementMap
+              in="SourceGraphic"
+              in2="blurred"
+              scale="77"
+              xChannelSelector="R"
+              yChannelSelector="G"
+            />
+          </filter>
+        </defs>
       </svg>
     </>
   )

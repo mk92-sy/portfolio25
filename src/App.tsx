@@ -70,18 +70,20 @@ const router = createBrowserRouter(
 
 const App = () => {
   return (
-    <DarkModeProvider>
-      <ScrollProvider>
-        <RefProvider>
-          <StackProvider>
-            <ActiveContentsProvider>
-              <ComponentsWrapper />
-              <RouterProvider router={router} />
-            </ActiveContentsProvider>
-          </StackProvider>
-        </RefProvider>
-      </ScrollProvider>
-    </DarkModeProvider>
+    <>
+      <DarkModeProvider>
+        <ScrollProvider>
+          <RefProvider>
+            <StackProvider>
+              <ActiveContentsProvider>
+                <ComponentsWrapper />
+                <RouterProvider router={router} />
+              </ActiveContentsProvider>
+            </StackProvider>
+          </RefProvider>
+        </ScrollProvider>
+      </DarkModeProvider>
+    </>
   )
 }
 

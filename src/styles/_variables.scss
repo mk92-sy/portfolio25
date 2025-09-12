@@ -30,7 +30,7 @@
   --color-secondary: #8ca0b3; /* Dusty blue-gray */
   --color-tertiary: #c3d4df; /* Pale muted blue */
 
-  --color-active: #4fa3c7; /* Soft cyan-blue */
+  --color-active: #1876e2; /* Soft cyan-blue */
   --color-white: #ffffff;
 }
 .dark {
@@ -49,5 +49,8 @@
     --color-bg-10: #cccccc;
 
     --color-txt: #f4f7fa;
+
+    --color-active: #6baaf1; /* Soft cyan-blue */
+    --color-white: #ffffff;
   }
 }

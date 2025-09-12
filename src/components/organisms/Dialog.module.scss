@@ -11,7 +11,7 @@
     transition: all 0.3s ease;
     &.open {
       visibility: visible;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.7);
       .dialog-content {
         transform: translateY(0);
         opacity: 1;
@@ -25,7 +25,7 @@
     padding: 2rem;
     width: calc(100% - 4rem);
     max-width: 400px;
-    background: var(--color-bg-00);
+    background: var(--color-bg-01);
     border-radius: 1.6rem;
     transform: translateY(30px);
     opacity: 0;
